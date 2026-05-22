@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Dark Side of the Moon — Pink Floyd Listening Guide</title>
+  <link rel="stylesheet" href="https://unpkg.com/@fontsource/playfair-display@5.0.8/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <style>
+    :root {
+      --font-sans: system-ui, -apple-system, sans-serif;
+      --font-serif: 'Playfair Display', Georgia, serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #04040a;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 2rem 1rem;
+      font-family: var(--font-sans);
+    }
+
+    .guide {
+      width: 100%;
+      max-width: 680px;
+      background: #08080e;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 0.5px solid rgba(255,255,255,0.1);
+    }
+
+    .guide-header {
+      padding: 24px 20px 18px;
+      border-bottom: 0.5px solid rgba(255,255,255,0.08);
+      margin-bottom: 6px;
+    }
+
+    .guide-eyebrow {
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.28);
+      margin-bottom: 8px;
+    }
+
+    .guide-title {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 400;
+      font-style: italic;
+      color: #ede8e0;
+      line-height: 1.2;
+      margin-bottom: 5px;
+    }
+
+    .guide-sub {
+      font-size: 12px;
+      color: rgba(255,255,255,.28);
+    }
+
+    .card {
+      background: #0e0e16;
+      border-top: 0.5px solid rgba(255,255,255,.1);
+      overflow: hidden;
+      margin-bottom: 1px;
+    }
+
+    .scene {
+      width: 100%;
+      display: block;
+      cursor: pointer;
+    }
+
+    .trow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 13px 18px;
+      cursor: pointer;
+      border-top: 0.5px solid rgba(255,255,255,.08);
+      background: #0e0e16;
+      transition: background 0.2s;
+    }
+
+    .trow:hover { background: #131320; }
+
+    .tnum {
+      font-size: 11px;
+      color: rgba(255,255,255,.3);
+      min-width: 15px;
+    }
+
+    .tmid { flex: 1; min-width: 0; }
+
+    .tname {
+      font-family: var(--font-serif);
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255,255,255,.9);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin: 0;
+    }
+
+    .tdur {
+      font-size: 11px;
+      color: rgba(255,255,255,.3);
+      margin-top: 2px;
+    }
+
+    .tchev {
+      font-size: 15px;
+      color: rgba(255,255,255,.35);
+      transition: transform .32s ease;
+      flex-shrink: 0;
+    }
+
+    .card.open .tchev { transform: rotate(180deg); }
+
+    .body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .48s cubic-bezier(.4,0,.2,1);
+    }
+
+    .inner {
+      padding: 18px 18px 24px;
+      border-top: 0.5px solid rgba(255,255,255,.08);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 18px;
+    }
+
+    .tag {
+      font-size: 10px;
+      padding: 3px 10px;
+      border-radius: 100px;
+      border: 0.5px solid rgba(255,255,255,.12);
+      color: rgba(255,255,255,.38);
+      text-transform: uppercase;
+      letter-spacing: .07em;
+    }
+
+    .slbl {
+      font-size: 9px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.3);
+      margin: 16px 0 6px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .slbl:first-of-type { margin-top: 0; }
+    .slbl i { font-size: 12px; }
+
+    .stxt {
+      font-size: 13.5px;
+      line-height: 1.74;
+      color: rgba(255,255,255,.62);
+    }
+
+    @keyframes pulse  { 0%,100%{opacity:.3}  50%{opacity:.9} }
+    @keyframes pulse2 { 0%,100%{opacity:.25} 50%{opacity:.7} }
+    @keyframes beat   { 0%,90%,100%{opacity:.55} 45%{opacity:1} }
+
+    .pg  { animation: pulse  4s ease-in-out infinite; }
+    .pg2 { animation: pulse2 6s ease-in-out 2s infinite; }
+    .hb  { animation: beat   1.1s ease-in-out infinite; }
+
+    @media (max-width: 480px) {
+      body { padding: 0; }
+      .guide { border-radius: 0; border: none; }
+      .guide-title { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="guide">
+
+  <div class="guide-header">
+    <p class="guide-eyebrow">Pink Floyd · 1973 · A listening guide</p>
+    <p class="guide-title">The Dark Side of the Moon</p>
+    <p class="guide-sub">Tap each track as it begins to play</p>
+  </div>
+
+  <!-- TRACK 1 — Speak to Me / Breathe -->
+  <div class="card" id="c1">
+    <svg class="scene" viewBox="0 0 680 150" xmlns="http://www.w3.org/2000/svg" onclick="tog(1)" aria-label="Open track 1">
+      <rect width="680" height="150" fill="#050d06"/>
+      <rect x="0" y="0" width="680" height="150" fill="#031408" opacity=".4"/>
+      <!-- ECG line -->
+      <polyline points="0,75 120,75 140,75 148,38 155,75 162,112 170,75 188,75 680,75"
+        fill="none" stroke="#1D9E75" stroke-width="1.2" opacity=".7" class="hb"/>
+      <!-- Soft glow around spike -->
+      <polyline points="0,75 120,75 140,75 148,38 155,75 162,112 170,75 188,75 680,75"
+        fill="none" stroke="#9FE1CB" stroke-width="3" opacity=".08"/>
+      <!-- Ambient green wash -->
+      <rect x="0" y="60" width="680" height="30" fill="#1D9E75" opacity=".04"/>
+      <!-- Tiny node dots -->
+      <circle cx="148" cy="38"  r="2.5" fill="#9FE1CB" opacity=".7" class="pg"/>
+      <circle cx="162" cy="112" r="2"   fill="#5DCAA5" opacity=".5" class="pg2"/>
+    </svg>
+    <div class="trow" onclick="tog(1)">
+      <span class="tnum">1</span>
+      <div class="tmid">
+        <p class="tname">Speak to Me / Breathe</p>
+        <p class="tdur">3:58</p>
+      </div>
+      <i class="ti ti-chevron-down tchev" aria-hidden="true"></i>
+    </div>
+    <div class="body" id="b1"><div class="inner">
+      <div class="tags">
+        <span class="tag">life</span><span class="tag">mortality</span><span class="tag">opening</span><span class="tag">the heartbeat</span>
+      </div>
+      <p class="slbl"><i class="ti ti-book-2" aria-hidden="true"></i> The story</p>
+      <p class="stxt">The album opens with a heartbeat — literally. You hear a pulse before you hear music, before you hear anything human. It's a statement of intent: this record is about life itself, from first breath to last. 'Breathe' then arrives like waking up — unhurried, vast, and slightly melancholy.</p>
+      <p class="slbl"><i class="ti ti-music" aria-hidden="true"></i> The music</p>
+      <p class="stxt">The chord structure of 'Breathe' is built on a floating progression that never quite resolves — a deliberate choice that gives the song its drifting, untethered feeling. Nick Mason's heartbeat was recorded directly and would become the album's recurring motif.</p>
+      <p class="slbl"><i class="ti ti-sparkles" aria-hidden="true"></i> Something to know</p>
+      <p class="stxt">The heartbeat at the very start and the very end of the album is the same recording. The entire journey — all 43 minutes — happens within a single pulse. It's one of the most elegant structural decisions in rock music.</p>
+    </div></div>
+  </div>
+
+  <!-- TRACK 2 — On the Run -->
+  <div class="card" id="c2">
+    <svg class="scene" viewBox="0 0 680 150" xmlns="http://www.w3.org/2000/svg" onclick="tog(2)" aria-label="Open track 2">
+      <rect width="680" height="150" fill="#06080e"/>
+      <!-- Speed lines - diagonal, cold blue -->
+      <line x1="-20" y1="20"  x2="700" y2="60"  stroke="#0C447C" stroke-width=".6" opacity=".5"/>
+      <line x1="-20" y1="35"  x2="700" y2="75"  stroke="#185FA5" stroke-width=".8" opacity=".6"/>
+      <line x1="-20" y1="50"  x2="700" y2="90"  stroke="#378ADD" stroke-width="1"  opacity=".55"/>
+      <line x1="-20" y1="65"  x2="700" y2="105" stroke="#185FA5" stroke-width=".8" opacity=".6"/>
+      <line x1="-20" y1="80"  x2="700" y2="120" stroke="#0C447C" stroke-width=".6" opacity=".5"/>
+      <line x1="-20" y1="95"  x2="700" y2="135" stroke="#185FA5" stroke-width=".7" opacity=".45"/>
+      <line x1="-20" y1="110" x2="700" y2="150" stroke="#0C447C" stroke-width=".5" opacity=".4"/>
+      <line x1="-20" y1="5"   x2="700" y2="45"  stroke="#042C53" stroke-width=".5" opacity=".4"/>
+      <!-- Brighter central streak -->
+      <line x1="0"   y1="75"  x2="680" y2="75"  stroke="#85B7EB" stroke-width="1.2" opacity=".35" class="pg"/>
+      <!-- Moving dot -->
+      <circle cx="420" cy="75" r="3" fill="#B5D4F4" opacity=".6" class="pg2"/>
+      <circle cx="420" cy="75" r="8" fill="#378ADD" opacity=".08" class="pg2"/>
+    </svg>
+    <div class="trow" onclick="tog(2)">
+      <span class="tnum">2</span>
+      <div class="tmid">
+        <p class="tname">On the Run</p>
+        <p class="tdur">3:30</p>
+      </div>
+      <i class="ti ti-chevron-down tchev" aria-hidden="true"></i>
+    </div>
+    <div class="body" id="b2"><div class="inner">
+      <div class="tags">
+        <span class="tag">anxiety</span><span class="tag">travel</span><span class="tag">pace</span><span class="tag">modern life</span>
+      </div>
+      <p class="slbl"><i class="ti ti-book-2" aria-hidden="true"></i> The story</p>
+      <p class="stxt">A purely instrumental piece built from a single synthesiser arpeggio, it captures the anxiety of modern travel and the relentless pace of contemporary life — airports, schedules, always running somewhere, never quite arriving. It functions as the album's pulse of dread.</p>
+      <p class="slbl"><i class="ti ti-music" aria-hidden="true"></i> The music</p>
+      <p class="stxt">Roger Waters created the sequenced bassline by accidentally triggering a synthesiser while walking across the studio. They kept it. The entire track is built on that happy mistake, layered with sound effects of footsteps, aircraft, and crowds.</p>
+      <p class="slbl"><i class="ti ti-sparkles" aria-hidden="true"></i> Something to know</p>
+      <p class="stxt">Live on tour, this segment was accompanied by a pre-recorded film of a man running through an airport terminal — one of the earliest uses of video projection in a rock concert. It turned a studio experiment into a cinematic experience.</p>
+    </div></div>
+  </div>
+
+  <!-- TRACK 3 — Time -->
+  <div class="card" id="c3">
+    <svg class="scene" viewBox="0 0 680 150" xmlns="http://www.w3.org/2000/svg" onclick="tog(3)" aria-label="Open track 3">
+      <rect width="680" height="150" fill="#0e0b04"/>
+      <!-- Clock face - concentric circles -->
+      <circle cx="340" cy="75" r="68" fill="none" stroke="#5a3a10" stroke-width=".6" opacity=".4"/>
+      <circle cx="340" cy="75" r="55" fill="none" stroke="#7a4e18" stroke-width=".6" opacity=".45"/>
+      <circle cx="340" cy="75" r="42" fill="none" stroke="#BA7517" stroke-width=".7" opacity=".5"/>
+      <!-- Tick marks around outer circle -->
+      <line x1="340" y1="7"   x2="340" y2="16"  stroke="#BA7517" stroke-width="1.2" opacity=".6"/>
+      <line x1="340" y1="134" x2="340" y2="143" stroke="#BA7517" stroke-width="1.2" opacity=".6"/>
+      <line x1="272" y1="75"  x2="281" y2="75"  stroke="#BA7517" stroke-width="1.2" opacity=".6"/>
+      <line x1="399" y1="75"  x2="408" y2="75"  stroke="#BA7517" stroke-width="1.2" opacity=".6"/>
+      <line x1="292" y1="27"  x2="298" y2="37"  stroke="#BA7517" stroke-width=".8" opacity=".45"/>
+      <line x1="382" y1="113" x2="388" y2="123" stroke="#BA7517" stroke-width=".8" opacity=".45"/>
+      <line x1="388" y1="27"  x2="382" y2="37"  stroke="#BA7517" stroke-width=".8" opacity=".45"/>
+      <line x1="292" y1="113" x2="298" y2="123" stroke="#BA7517" stroke-width=".8" opacity=".45"/>
+      <!-- Clock hands -->
+      <line x1="340" y1="75" x2="340" y2="35"  stroke="#EF9F27" stroke-width="1.5" opacity=".7" stroke-linecap="round"/>
+      <line x1="340" y1="75" x2="368" y2="90"  stroke="#FAC775" stroke-width="1"   opacity=".6" stroke-linecap="round"/>
+      <!-- Center dot -->
+      <circle cx="340" cy="75" r="3.5" fill="#EF9F27" opacity=".8" class="pg"/>
+      <circle cx="340" cy="75" r="1.5" fill="#FAC775" opacity=".95"/>
+      <!-- Ambient warm glow -->
+      <circle cx="340" cy="75" r="25" fill="#BA7517" opacity=".05" class="pg2"/>
+    </svg>
+    <div class="trow" onclick="tog(3)">
+      <span class="tnum">3</span>
+      <div class="tmid">
+        <p class="tname">Time / Breathe (Reprise)</p>
+        <p class="tdur">7:04</p>
+      </div>
+      <i class="ti ti-chevron-down tchev" aria-hidden="true"></i>
+    </div>
+    <div class="body" id="b3"><div class="inner">
+      <div class="tags">
+        <span class="tag">mortality</span><span class="tag">regret</span><span class="tag">wasted time</span><span class="tag">urgency</span>
+      </div>
+      <p class="slbl"><i class="ti ti-book-2" aria-hidden="true"></i> The story</p>
+      <p class="stxt">The most directly confrontational song on the album. The famous opening — dozens of clocks and alarms going off simultaneously — is the sound of wasted time announcing itself. The lyrics arrive like a cold dose of reality: you've been waiting for your life to start, and it already has.</p>
+      <p class="slbl"><i class="ti ti-music" aria-hidden="true"></i> The music</p>
+      <p class="stxt">The clock sound effects were originally recorded by Alan Parsons for a quadraphonic sound demonstration, then repurposed here. Nick Mason's drumming in the main section is some of the most distinctive and unhurried of his career — time measured out deliberately.</p>
+      <p class="slbl"><i class="ti ti-sparkles" aria-hidden="true"></i> Something to know</p>
+      <p class="stxt">The line "no one told you when to run, you missed the starting gun" became one of rock's most resonant expressions of existential regret — the feeling that life passed before you noticed it had begun. Roger Waters has said it was written as a warning to himself.</p>
+    </div></div>
+  </div>
+
+  <!-- TRACK 4 — The Great Gig in the Sky -->
+  <div class="card" id="c4">
+    <svg class="scene" viewBox="0 0 680 150" xmlns="http://www.w3.org/2000/svg" onclick="tog(4)" aria-label="Open track 4">
+      <rect width="680" height="150" fill="#0e0508"/>
+      <!-- Waveform peaks - coral/pink, suggesting Clare Torry's voice -->
+      <polyline
+        points="0,75 30,75 50,72 70,60 85,30 95,75 105,120 115,75 130,68 150,75 175,72 200,55 215,22 225,75 235,128 245,75 260,65 280,75 305,70 330,48 345,12 355,75 365,138 375,75 390,68 410,75 430,72 455,50 470,18 480,75 490,132 500,75 515,68 535,75 555,72 575,58 590,35 600,75 610,115 620,75 640,72 660,75 680,75"
+        fill="none" stroke="#D4537E" stroke-width="1.2" opacity=".65"/>
+      <!-- Softer echo waveform -->
+      <polyline
+        points="0,75 30,75 50,73 70,63 85,38 95,75 105,112 115,75 130,70 150,75 175,73 200,60 215,32 225,75 235,118 245,75 260,67 280,75 305,72 330,53 345,22 355,75 365,128 375,75 390,70 410,75 430,73 455,55 470,28 480,75 490,122 500,75 515,70 535,75 555,73 575,62 590,42 600,75 610,108 620,75 640,73 660,75 680,75"
+        fill="none" stroke="#F4C0D1" stroke-width="3" opacity=".07"/>
+      <!-- Ambient pink wash at peaks -->
+      <rect x="0" y="0" width="680" height="150" fill="#D4537E" opacity=".03"/>
+      <!-- Peak highlight dots -->
+      <circle cx="345" cy="12"  r="2.5" fill="#F4C0D1" opacity=".6" class="pg"/>
+      <circle cx="215" cy="22"  r="2"   fill="#ED93B1" opacity=".5" class="pg2"/>
+      <circle cx="470" cy="18"  r="2"   fill="#ED93B1" opacity=".5" class="pg2"/>
+    </svg>
+    <div class="trow" onclick="tog(4)">
+      <span class="tnum">4</span>
+      <div class="tmid">
+        <p class="tname">The Great Gig in the Sky</p>
+        <p class="tdur">4:47</p>
+      </div>
+      <i class="ti ti-chevron-down tchev" aria-hidden="true"></i>
+    </div>
+    <div class="body" id="b4"><div class="inner">
+      <div class="tags">
+        <span class="tag">death</span><span class="tag">emotion</span><span class="tag">Clare Torry</span><span class="tag">transcendence</span>
+      </div>
+      <p class="slbl"><i class="ti ti-book-2" aria-hidden="true"></i> The story</p>
+      <p class="stxt">Originally an instrumental called "The Mortality Sequence." Session singer Clare Torry was brought in and asked simply to improvise something about death. What she delivered across two takes — wordless, soaring, harrowing — is one of the most extraordinary vocal performances in rock history.</p>
+      <p class="slbl"><i class="ti ti-music" aria-hidden="true"></i> The music</p>
+      <p class="stxt">Richard Wright's piano underneath is the album's most purely beautiful piece of playing — patient, tender, holding space for the voice above it. Clare Torry's performance has no words because there are none adequate to the subject. Pure emotion, improvised entirely in the moment.</p>
+      <p class="slbl"><i class="ti ti-sparkles" aria-hidden="true"></i> Something to know</p>
+      <p class="stxt">Torry was paid a standard session fee of £30 for the recording. She initially felt embarrassed, thinking her performance was too over the top. Years later she successfully sued Pink Floyd for co-writing credit — and won. She is now listed as a co-composer on the track.</p>
+    </div></div>
+  </div>
+
+  <!-- TRACK 5 — Money -->
+  <div class="card" id="c5">
+    <svg class="scene" viewBox="0 0 680 150" xmlns="http://www.w3.org/2000/svg" onclick="tog(5)" aria-label="Open track 5">
+      <rect width="680" height="150" fill="#050d06"/>
+      <!-- Scattered hexagons (coins) -->
+      <polygon points="100,45 116,36 132,45 132,63 116,72 100,63" fill="none" stroke="#3B6D11" stroke-width=".7" opacity=".5"/>
+      <polygon points="190,90 206,81 222,90 222,108 206,117 190,108" fill="none" stroke="#639922" stroke-width=".8" opacity=".55"/>
+      <polygon points="280,30 296,21 312,30 312,48 296,57 280,48" fill="none" stroke="#3B6D11" stroke-width=".7" opacity=".45"/>
+      <polygon points="340,80 356,71 372,80 372,98 356,107 340,98" fill="none" stroke="#97C459" stroke-width=".9" opacity=".6" class="pg"/>
+      <polygon points="420,45 436,36 452,45 452,63 436,72 420,63" fill="none" stroke="#639922" stroke-width=".7" opacity=".5"/>
+      <polygon points="510,100 526,91 542,100 542,118 526,127 510,118" fill="none" stroke="#3B6D11" stroke-width=".7" opacity=".45"/>
+      <polygon points="580,35 596,26 612,35 612,53 596,62 580,53" fill="none" stroke="#639922" stroke-width=".8" opacity=".5"/>
+      <polygon points="60,105 76,96 92,105 92,123 76,132 60,123" fill="none" stroke="#3B6D11" stroke-width=".6" opacity=".4"/>
+      <polygon points="610,105 626,96 642,105 642,123 626,132 610,123" fill="none" stroke="#3B6D11" stroke-width=".6" opacity=".4"/>
+      <!-- Center coin brighter -->
+      <circle cx="356" cy="89" r="5" fill="#639922" opacity=".2" class="pg2"/>
+      <circle cx="356" cy="89" r="2" fill="#97C459" opacity=".5" class="pg"/>
+      <!-- Cash register line (7/4 rhythm dots) -->
+      <circle cx="120" cy="140" r="3" fill="#3B6D11" opacity=".5"/>
+      <circle cx="200" cy="140" r="3" fill="#3B6D11" opacity=".5"/>
+      <circle cx="280" cy="140" r="3" fill="#3B6D11" opacity=".5"/>
+      <circle cx="340" cy="140" r="3" fill="#3B6D11" opacity=".5"/>
+      <circle cx="400" cy="140" r="3" fill="#639922" opacity=".7"/>
+      <circle cx="480" cy="140" r="3" fill="#3B6D11" opacity=".5"/>
+      <circle cx="560" cy="140" r="3" fill="#3B6D11" opacity=".5"/>
+    </svg>
+    <div class="trow" onclick="tog(5)">
+      <span class="tnum">5</span>
+      <div class="tmid">
+        <p class="tname">Money</p>
+        <p class="tdur">6:22</p>
+      </div>
+      <i class="ti ti-chevron-down tchev" aria-hidden="true"></i>
+    </div>
+    <div class="body" id="b5"><div class="inner">
+      <div class="tags">
+        <span class="tag">greed</span><span class="tag">capitalism</span><span class="tag">irony</span><span class="tag">success</span>
+      </div>
+      <p class="slbl"><i class="ti ti-book-2" aria-hidden="true"></i> The story</p>
+      <p class="stxt">The most commercially successful track on the album — and the one most aware of its own irony. A song about greed that made Pink Floyd extremely wealthy. The cash register sounds that open it became one of the most recognisable intros in rock, instantly placing you inside the subject matter.</p>
+      <p class="slbl"><i class="ti ti-music" aria-hidden="true"></i> The music</p>
+      <p class="stxt">The cash register, coins, and tearing paper that form the intro were assembled by Roger Waters on tape loops at home, and run in 7/4 time — an unusual metre that gives the rhythm a slightly off-kilter, compulsive feeling, like spending you can't stop. The song then shifts to 4/4 for Gilmour's celebrated guitar solo.</p>
+      <p class="slbl"><i class="ti ti-sparkles" aria-hidden="true"></i> Something to know</p>
+      <p class="stxt">This is the only track on the album to feature a guitar solo — almost as if the commercial subject demanded the most commercially accessible musical moment. It was also the only single released from the album in the US, reaching number 13 on the Billboard chart.</p>
+    </div></div>
+  </div>
+
+  <!-- TRACK 6 — Us and Them -->
+  <div class="card" id="c6">
+    <svg class="scene" viewBox="0 0 680 150" xmlns="http://www.w3.org/2000/svg" onclick="tog(6)" aria-label="Open track 6">
+      <rect width="680" height="150" fill="#08080e"/>
+      <!-- Left side - cold blue -->
+      <rect x="0" y="0" width="340" height="150" fill="#042C53" opacity=".22"/>
+      <!-- Right side - warmer dark -->
+      <rect x="340" y="0" width="340" height="150" fill="#1a1008" opacity=".18"/>
+      <!-- Dividing line -->
+      <line x1="340" y1="0" x2="340" y2="150" stroke="rgba(255,255,255,0.18)" stroke-width=".8"/>
+      <!-- Left side horizontal lines (us) -->
+      <line x1="30"  y1="40"  x2="300" y2="40"  stroke="#185FA5" stroke-width=".6" opacity=".45"/>
+      <line x1="60"  y1="60"  x2="300" y2="60"  stroke="#185FA5" stroke-width=".6" opacity=".4"/>
+      <line x1="30"  y1="80"  x2="300" y2="80"  stroke="#185FA5" stroke-width=".6" opacity=".5"/>
+      <line x1="60"  y1="100" x2="300" y2="100" stroke="#185FA5" stroke-width=".6" opacity=".4"/>
+      <line x1="30"  y1="120" x2="300" y2="120" stroke="#185FA5" stroke-width=".6" opacity=".35"/>
+      <!-- Right side horizontal lines (them) -->
+      <line x1="380" y1="40"  x2="640" y2="40"  stroke="#5a3a10" stroke-width=".6" opacity=".45"/>
+      <line x1="380" y1="60"  x2="610" y2="60"  stroke="#5a3a10" stroke-width=".6" opacity=".4"/>
+      <line x1="380" y1="80"  x2="640" y2="80"  stroke="#5a3a10" stroke-width=".6" opacity=".5"/>
+      <line x1="380" y1="100" x2="610" y2="100" stroke="#5a3a10" stroke-width=".6" opacity=".4"/>
+      <line x1="380" y1="120" x2="640" y2="120" stroke="#5a3a10" stroke-width=".6" opacity=".35"/>
+      <!-- Small figure silhouettes - left -->
+      <rect x="130" y="55" width="8" height="20" fill="#185FA5" opacity=".4" rx="1"/>
+      <circle cx="134" cy="52" r="5" fill="#185FA5" opacity=".4"/>
+      <!-- Small figure silhouettes - right -->
+      <rect x="542" y="55" width="8" height="20" fill="#5a3a10" opacity=".4" rx="1"/>
+      <circle cx="546" cy="52" r="5" fill="#5a3a10" opacity=".4"/>
+      <!-- Sax dot -->
+      <circle cx="340" cy="75" r="4" fill="rgba(255,255,255,0.12)" class="pg2"/>
+    </svg>
+    <div class="trow" onclick="tog(6)">
+      <span class="tnum">6</span>
+      <div class="tmid">
+        <p class="tname">Us and Them</p>
+        <p class="tdur">7:49</p>
+      </div>
+      <i class="ti ti-chevron-down tchev" aria-hidden="true"></i>
+    </div>
+    <div class="body" id="b6"><div class="inner">
+      <div class="tags">
+        <span class="tag">war</span><span class="tag">division</span><span class="tag">class</span><span class="tag">futility</span>
+      </div>
+      <p class="slbl"><i class="ti ti-book-2" aria-hidden="true"></i> The story</p>
+      <p class="stxt">Originally written for the Zabriskie Point film (which rejected it), the song is about the division of humanity — war, class, power. The words are deceptively simple but devastating: ordinary men who simply didn't like the look of someone, who cried "forward" from the rear while the front rank died.</p>
+      <p class="slbl"><i class="ti ti-music" aria-hidden="true"></i> The music</p>
+      <p class="stxt">Richard Wright's organ and Gilmour's vocals carry a floating, almost hymn-like quality. Dick Parry's saxophone breathes through the spaces like grief made audible. It's one of the few moments on the album where the emotional weight comes from what isn't played rather than what is.</p>
+      <p class="slbl"><i class="ti ti-sparkles" aria-hidden="true"></i> Something to know</p>
+      <p class="stxt">The lyric "forward he cried from the rear, and the front rank died" is one of the most concise descriptions of the futility of war ever put into a pop song. Waters based it partly on his father, who was killed in World War II when Roger was just five months old.</p>
+    </div></div>
+  </div>
+
+  <!-- TRACK 7 — Any Colour You Like -->
+  <div class="card" id="c7">
+    <svg class="scene" viewBox="0 0 680 150" xmlns="http://www.w3.org/2000/svg" onclick="tog(7)" aria-label="Open track 7">
+      <rect width="680" height="150" fill="#060608"/>
+      <!-- Prism triangle -->
+      <polygon points="200,75 270,32 270,118" fill="#111118" stroke="rgba(255,255,255,0.3)" stroke-width=".8"/>
+      <!-- Input white beam -->
+      <line x1="40"  y1="75" x2="200" y2="75" stroke="#fff" stroke-width="1.5" opacity=".45"/>
+      <line x1="40"  y1="75" x2="200" y2="75" stroke="#fff" stroke-width="6"   opacity=".06"/>
+      <!-- Spectrum fans from prism right apex (270,75) -->
+      <line x1="270" y1="35"  x2="640" y2="8"   stroke="#993556" stroke-width="2.5" opacity=".65"/>
+      <line x1="270" y1="48"  x2="640" y2="30"  stroke="#534AB7" stroke-width="2.5" opacity=".65"/>
+      <line x1="270" y1="60"  x2="640" y2="55"  stroke="#185FA5" stroke-width="2.5" opacity=".65"/>
+      <line x1="270" y1="75"  x2="640" y2="75"  stroke="#3B6D11" stroke-width="2.5" opacity=".65"/>
+      <line x1="270" y1="88"  x2="640" y2="96"  stroke="#BA7517" stroke-width="2.5" opacity=".65"/>
+      <line x1="270" y1="100" x2="640" y2="118" stroke="#D85A30" stroke-width="2.5" opacity=".65"/>
+      <line x1="270" y1="115" x2="640" y2="142" stroke="#993333" stroke-width="2.5" opacity=".65"/>
+      <!-- Soft glow at prism apex -->
+      <circle cx="270" cy="75" r="6" fill="#fff" opacity=".12" class="pg2"/>
+    </svg>
+    <div class="trow" onclick="tog(7)">
+      <span class="tnum">7</span>
+      <div class="tmid">
+        <p class="tname">Any Colour You Like</p>
+        <p class="tdur">3:26</p>
+      </div>
+      <i class="ti ti-chevron-down tchev" aria-hidden="true"></i>
+    </div>
+    <div class="body" id="b7"><div class="inner">
+      <div class="tags">
+        <span class="tag">instrumental</span><span class="tag">freedom</span><span class="tag">psychedelia</span><span class="tag">illusion of choice</span>
+      </div>
+      <p class="slbl"><i class="ti ti-book-2" aria-hidden="true"></i> The story</p>
+      <p class="stxt">The album's purely instrumental interlude. The title comes from a Henry Ford quote — "any customer can have a car painted any colour he wants, so long as it is black" — a joke about the illusion of choice that sits at the heart of modern consumer life. It's a gap in the album's oppressive logic, a moment to breathe.</p>
+      <p class="slbl"><i class="ti ti-music" aria-hidden="true"></i> The music</p>
+      <p class="stxt">Composed and performed by Gilmour and Wright, it functions as a palette cleanser before the weight of 'Brain Damage' and 'Eclipse'. The synthesiser work is melodically inventive and genuinely playful — a rare lightness in an album largely concerned with darkness.</p>
+      <p class="slbl"><i class="ti ti-sparkles" aria-hidden="true"></i> Something to know</p>
+      <p class="stxt">It's the only track on the album not written by Roger Waters — and the freedom from his lyrical themes is audible. It feels exploratory rather than controlled, which makes it the closest thing to pure joy anywhere on the record.</p>
+    </div></div>
+  </div>
+
+  <!-- TRACK 8 — Brain Damage -->
+  <div class="card" id="c8">
+    <svg class="scene" viewBox="0 0 680 150" xmlns="http://www.w3.org/2000/svg" onclick="tog(8)" aria-label="Open track 8">
+      <rect width="680" height="150" fill="#060814"/>
+      <!-- Stars, sparse -->
+      <circle cx="42"  cy="22"  r=".7" fill="#fff" opacity=".4"/>
+      <circle cx="130" cy="14"  r=".5" fill="#fff" opacity=".35"/>
+      <circle cx="220" cy="38"  r=".6" fill="#fff" opacity=".3"/>
+      <circle cx="480" cy="20"  r=".7" fill="#fff" opacity=".38"/>
+      <circle cx="560" cy="42"  r=".5" fill="#fff" opacity=".3"/>
+      <circle cx="620" cy="12"  r=".8" fill="#fff" opacity=".35"/>
+      <circle cx="80"  cy="120" r=".5" fill="#fff" opacity=".22"/>
+      <circle cx="600" cy="130" r=".5" fill="#fff" opacity=".2"/>
+      <!-- Moon - full circle -->
+      <circle cx="340" cy="70" r="52" fill="none" stroke="#0C447C" stroke-width=".6" opacity=".45"/>
+      <circle cx="340" cy="70" r="44" fill="#060814" stroke="#185FA5" stroke-width=".6" opacity=".5"/>
+      <circle cx="340" cy="70" r="38" fill="#07101e" opacity=".8"/>
+      <!-- Moon surface texture - subtle craters -->
+      <circle cx="320" cy="58" r="5" fill="none" stroke="#0C447C" stroke-width=".5" opacity=".4"/>
+      <circle cx="355" cy="80" r="7" fill="none" stroke="#0C447C" stroke-width=".5" opacity=".35"/>
+      <circle cx="330" cy="82" r="3" fill="none" stroke="#0C447C" stroke-width=".4" opacity=".3"/>
+      <!-- Ambient moon glow -->
+      <circle cx="340" cy="70" r="56" fill="#185FA5" opacity=".04" class="pg2"/>
+      <!-- Grass line -->
+      <line x1="0" y1="140" x2="680" y2="140" stroke="#3B6D11" stroke-width=".6" opacity=".4"/>
+      <line x1="0" y1="142" x2="680" y2="142" stroke="#27500A" stroke-width=".5" opacity=".3"/>
+    </svg>
+    <div class="trow" onclick="tog(8)">
+      <span class="tnum">8</span>
+      <div class="tmid">
+        <p class="tname">Brain Damage</p>
+        <p class="tdur">3:49</p>
+      </div>
+      <i class="ti ti-chevron-down tchev" aria-hidden="true"></i>
+    </div>
+    <div class="body" id="b8"><div class="inner">
+      <div class="tags">
+        <span class="tag">lunacy</span><span class="tag">Syd Barrett</span><span class="tag">the dark side</span><span class="tag">madness</span>
+      </div>
+      <p class="slbl"><i class="ti ti-book-2" aria-hidden="true"></i> The story</p>
+      <p class="stxt">Explicitly about Syd Barrett again — the lunatic on the grass is Syd, wandering the open spaces of Cambridge after his breakdown. The dark side of the moon finally arrives here as a metaphor: the unreachable part of the mind that, once entered, cannot be left.</p>
+      <p class="slbl"><i class="ti ti-music" aria-hidden="true"></i> The music</p>
+      <p class="stxt">Roger Waters' lead vocal is unusually gentle and almost conversational, as if describing something he's witnessed rather than imagined. The chorus lifts into something that sounds almost joyful — which makes it more unsettling, not less. Joy and madness in the same melody.</p>
+      <p class="slbl"><i class="ti ti-sparkles" aria-hidden="true"></i> Something to know</p>
+      <p class="stxt">"I'll see you on the dark side of the moon" is addressed directly to Syd — an acknowledgement that some part of Roger Waters recognised the same potential in himself. It's not a taunt. It's a confession. The album's title finally appears, and it's a goodbye.</p>
+    </div></div>
+  </div>
+
+  <!-- TRACK 9 — Eclipse -->
+  <div class="card" id="c9">
+    <svg class="scene" viewBox="0 0 680 150" xmlns="http://www.w3.org/2000/svg" onclick="tog(9)" aria-label="Open track 9">
+      <rect width="680" height="150" fill="#050506"/>
+      <!-- Eclipse corona rings, outermost to innermost -->
+      <circle cx="340" cy="75" r="70" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="8"/>
+      <circle cx="340" cy="75" r="58" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="6"/>
+      <circle cx="340" cy="75" r="48" fill="none" stroke="rgba(255,255,255,0.1)"  stroke-width="5"/>
+      <circle cx="340" cy="75" r="40" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="3"/>
+      <!-- Corona highlight arcs -->
+      <path d="M310,40 A44,44 0 0 1 380,38" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+      <path d="M298,55 A52,52 0 0 1 392,46" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+      <!-- Dark moon disc -->
+      <circle cx="340" cy="75" r="34" fill="#050506"/>
+      <circle cx="340" cy="75" r="34" fill="#050506" stroke="rgba(255,255,255,0.08)" stroke-width=".5"/>
+      <!-- Outer glow pulse -->
+      <circle cx="340" cy="75" r="72" fill="#fff" opacity=".02" class="pg"/>
+      <!-- Tiny distant stars -->
+      <circle cx="80"  cy="28" r=".6" fill="#fff" opacity=".4"/>
+      <circle cx="180" cy="18" r=".5" fill="#fff" opacity=".35"/>
+      <circle cx="490" cy="22" r=".6" fill="#fff" opacity=".38"/>
+      <circle cx="580" cy="38" r=".5" fill="#fff" opacity=".32"/>
+      <circle cx="640" cy="15" r=".7" fill="#fff" opacity=".36"/>
+    </svg>
+    <div class="trow" onclick="tog(9)">
+      <span class="tnum">9</span>
+      <div class="tmid">
+        <p class="tname">Eclipse</p>
+        <p class="tdur">2:03</p>
+      </div>
+      <i class="ti ti-chevron-down tchev" aria-hidden="true"></i>
+    </div>
+    <div class="body" id="b9"><div class="inner">
+      <div class="tags">
+        <span class="tag">unity</span><span class="tag">completion</span><span class="tag">everything</span><span class="tag">the heartbeat returns</span>
+      </div>
+      <p class="slbl"><i class="ti ti-book-2" aria-hidden="true"></i> The story</p>
+      <p class="stxt">The album's closing statement — a resolution after everything that came before. Every human activity is listed: everything you do, everything you feel, everything you touch. Then the final line pulls the rug away. The heartbeat returns, and the album ends exactly as it began.</p>
+      <p class="slbl"><i class="ti ti-music" aria-hidden="true"></i> The music</p>
+      <p class="stxt">It builds from almost nothing to a full, choir-backed climax, then drops back to the heartbeat alone. The musical architecture mirrors the lyrical theme precisely — everything comes full circle. The album's journey ends at exactly the same pulse it started with.</p>
+      <p class="slbl"><i class="ti ti-sparkles" aria-hidden="true"></i> Something to know</p>
+      <p class="stxt">The final spoken words — delivered by a doorman at Abbey Road named Gerry O'Driscoll — are: "There is no dark side of the moon, really. Matter of fact it's all dark." The entire album's thesis, delivered quietly by a stranger. It arrives after the music has already ended.</p>
+    </div></div>
+  </div>
+
+</div>
+
+<script>
+  function tog(n) {
+    const card  = document.getElementById('c' + n);
+    const body  = document.getElementById('b' + n);
+    const inner = body.querySelector('.inner');
+    const isOpen = card.classList.contains('open');
+    [1,2,3,4,5,6,7,8,9].forEach(i => {
+      document.getElementById('c' + i).classList.remove('open');
+      document.getElementById('b' + i).style.maxHeight = '0';
+    });
+    if (!isOpen) {
+      card.classList.add('open');
+      body.style.maxHeight = (inner.scrollHeight + 40) + 'px';
+    }
+  }
+</script>
+
+</body>
+</html>
