@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Division Bell — Pink Floyd Listening Guide</title>
+  <link rel="stylesheet" href="https://unpkg.com/@fontsource/playfair-display@5.0.8/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <style>
+    :root { --font-sans: system-ui, -apple-system, sans-serif; --font-serif: 'Playfair Display', Georgia, serif; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #04040a; min-height: 100vh; display: flex; align-items: flex-start; justify-content: center; padding: 2rem 1rem; font-family: var(--font-sans); }
+    .guide { width: 100%; max-width: 680px; background: #08080e; border-radius: 12px; overflow: hidden; border: 0.5px solid rgba(255,255,255,0.1); }
+    .guide-header { padding: 24px 20px 18px; border-bottom: 0.5px solid rgba(255,255,255,0.08); margin-bottom: 6px; }
+    .guide-eyebrow { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.28); margin-bottom: 8px; }
+    .guide-title { font-family: var(--font-serif); font-size: 26px; font-weight: 400; font-style: italic; color: #ede8e0; line-height: 1.2; margin-bottom: 5px; }
+    .guide-sub { font-size: 12px; color: rgba(255,255,255,.28); }
+    .card { background: #0e0e16; border-top: 0.5px solid rgba(255,255,255,.1); overflow: hidden; margin-bottom: 1px; }
+    .scene { width: 100%; display: block; cursor: pointer; }
+    .trow { display: flex; align-items: center; gap: 12px; padding: 13px 18px; cursor: pointer; border-top: 0.5px solid rgba(255,255,255,.08); background: #0e0e16; transition: background 0.2s; }
+    .trow:hover { background: #131320; }
+    .tnum { font-size: 11px; color: rgba(255,255,255,.3); min-width: 18px; }
+    .tmid { flex: 1; min-width: 0; }
+    .tname { font-family: var(--font-serif); font-size: 14px; font-weight: 400; color: rgba(255,255,255,.9); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin: 0; }
+    .tdur { font-size: 11px; color: rgba(255,255,255,.3); margin-top: 2px; }
+    .tchev { font-size: 15px; color: rgba(255,255,255,.35); transition: transform .32s ease; flex-shrink: 0; }
+    .card.open .tchev { transform: rotate(180deg); }
+    .body { max-height: 0; overflow: hidden; transition: max-height .48s cubic-bezier(.4,0,.2,1); }
+    .inner { padding: 18px 18px 24px; border-top: 0.5px solid rgba(255,255,255,.08); }
+    .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 18px; }
+    .tag { font-size: 10px; padding: 3px 10px; border-radius: 100px; border: 0.5px solid rgba(255,255,255,.12); color: rgba(255,255,255,.38); text-transform: uppercase; letter-spacing: .07em; }
+    .slbl { font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.3); margin: 16px 0 6px; display: flex; align-items: center; gap: 4px; }
+    .slbl:first-of-type { margin-top: 0; }
+    .slbl i { font-size: 12px; }
+    .stxt { font-size: 13.5px; line-height: 1.74; color: rgba(255,255,255,.62); }
+    @keyframes pulse  { 0%,100%{opacity:.3}  50%{opacity:.85} }
+    @keyframes pulse2 { 0%,100%{opacity:.2}  50%{opacity:.6}  }
+    @keyframes drift  { 0%,100%{opacity:.4}  50%{opacity:.8}  }
+    .pg  { animation: pulse  4s ease-in-out infinite; }
+    .pg2 { animation: pulse2 7s ease-in-out 2s infinite; }
+    .pd  { animation: drift  5s ease-in-out 1s infinite; }
+    @media (max-width: 480px) { body { padding: 0; } .guide { border-radius: 0; border: none; } .guide-title { font-size: 22px; } }
+  </style>
+</head>
+<body>
+<div class="guide">
+
+  <div class="guide-header">
+    <p class="guide-eyebrow">Pink Floyd · 1994 · A listening guide</p>
+    <p class="guide-title">The Division Bell</p>
+    <p class="guide-sub">Tap each track as it begins to play</p>
+  </div>
+
+  <!-- 1 Cluster One -->
+  <div class="card" id="c1">
+    <svg class="scene" viewBox="0 0 680 155" xmlns="http://www.w3.org/2000/svg" onclick="tog(1)">
+      <rect width="680" height="155" fill="#06060e"/>
+      <circle cx="85"  cy="30"  r="1.2" fill="#fff" opacity=".5"/><circle cx="180" cy="16"  r=".8" fill="#fff" opacity=".4"/>
+      <circle cx="265" cy="52"  r="1.5" fill="#fff" opacity=".35"/><circle cx="340" cy="25"  r=".7" fill="#fff" opacity=".45"/>
+      <circle cx="420" cy="68"  r="1.1" fill="#fff" opacity=".4"/><circle cx="510" cy="20"  r=".9" fill="#fff" opacity=".5"/>
+      <circle cx="590" cy="46"  r="1.3" fill="#fff" opacity=".38"/><circle cx="640" cy="88"  r=".7" fill="#fff" opacity=".42"/>
+      <circle cx="45"  cy="108" r=".8"  fill="#fff" opacity=".32"/><circle cx="140" cy="128" r="1"  fill="#fff" opacity=".28"/>
+      <circle cx="230" cy="98"  r=".6"  fill="#fff" opacity=".35"/><circle cx="460" cy="116" r=".9" fill="#fff" opacity=".3"/>
+      <circle cx="560" cy="138" r=".7"  fill="#fff" opacity=".25"/><circle cx="620" cy="116" r="1.1" fill="#fff" opacity=".32"/>
+      <circle cx="310" cy="78" r="2.2" fill="#AFA9EC" opacity=".35" class="pg"/>
+      <circle cx="320" cy="70" r="1.4" fill="#AFA9EC" opacity=".3"/><circle cx="328" cy="83" r="1" fill="#AFA9EC" opacity=".25"/>
+      <circle cx="302" cy="74" r=".8"  fill="#AFA9EC" opacity=".28"/><circle cx="316" cy="88" r=".9" fill="#AFA9EC" opacity=".22"/>
+      <circle cx="490" cy="53" r="1.8" fill="#7F77DD" opacity=".3" class="pg2"/>
+      <circle cx="498" cy="46" r="1.2" fill="#7F77DD" opacity=".25"/><circle cx="482" cy="60" r=".9" fill="#7F77DD" opacity=".22"/>
+      <circle cx="340" cy="78" r="55" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+    </svg>
+    <div class="trow" onclick="tog(1)"><span class="tnum">1</span><div class="tmid"><p class="tname">Cluster One</p><p class="tdur">5:58</p></div><i class="ti ti-chevron-down tchev" aria-hidden="true"></i></div>
+    <div class="body" id="b1"><div class="inner">
+      <div class="tags"><span class="tag">instrumental</span><span class="tag">ambient</span><span class="tag">opening</span><span class="tag">space</span></div>
+      <p class="slbl"><i class="ti ti-book-2" aria-hidden="true"></i> The story</p>
+      <p class="stxt">The album drifts open like waking from a dreamless sleep — no drums, no guitars, just a slow wash of synthesiser. It is an invitation to stillness before the album's central subject announces itself: the distance between people, and the struggle to bridge it.</p>
+      <p class="slbl"><i class="ti ti-music" aria-hidden="true"></i> The music</p>
+      <p class="stxt">Richard Wright's keyboards create a vast, unhurried ambient landscape — patient in the way that only Floyd, at their best, could be patient. The track earns its five minutes simply by existing in the space it creates, with no urgency to get anywhere.</p>
+      <p class="slbl"><i class="ti ti-sparkles" aria-hidden="true"></i> Something to know</p>
+      <p class="stxt">The album was recorded partly on David Gilmour's houseboat studio, The Astoria, moored on the Thames. That floating, on-the-water quality is audible in this opening — nothing is anchored, everything drifts slightly. It is one of the most genuinely peaceful openings in their catalogue.</p>
+    </div></div>
+  </div>
+
+  <!-- 2 What Do You Want from Me -->
+  <div class="card" id="c2">
+    <svg class="scene" viewBox="0 0 680 155" xmlns="http://www.w3.org/2000/svg" onclick="tog(2)">
+      <rect width="680" height="155" fill="#09070e"/>
+      <ellipse cx="195" cy="78" rx="55" ry="62" fill="#111820" opacity=".9"/>
+      <ellipse cx="195" cy="60" rx="42" ry="46" fill="#161e2e" opacity=".85"/>
+      <ellipse cx="213" cy="70" rx="12" ry="10" fill="#D4537E" opacity=".45"/>
+      <ellipse cx="213" cy="70" rx="6"  ry="5"  fill="#F4C0D1" opacity=".55" class="pg"/>
+      <ellipse cx="485" cy="78" rx="55" ry="62" fill="#111820" opacity=".9"/>
+      <ellipse cx="485" cy="60" rx="42" ry="46" fill="#161e2e" opacity=".85"/>
+      <ellipse cx="467" cy="70" rx="12" ry="10" fill="#D4537E" opacity=".45"/>
+      <ellipse cx="467" cy="70" rx="6"  ry="5"  fill="#F4C0D1" opacity=".55" class="pg2"/>
+      <line x1="250" y1="78" x2="430" y2="78" stroke="rgba(255,255,255,0.08)" stroke-width=".6" stroke-dasharray="4 6"/>
+      <circle cx="340" cy="78" r="12" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width=".6"/>
+      <circle cx="340" cy="78" r="3"  fill="rgba(255,255,255,0.12)" class="pd"/>
+    </svg>
+    <div class="trow" onclick="tog(2)"><span class="tnum">2</span><div class="tmid"><p class="tname">What Do You Want from Me</p><p class="tdur">4:20</p></div><i class="ti ti-chevron-down tchev" aria-hidden="true"></i></div>
+    <div class="body" id="b2"><div class="inner">
+      <div class="tags"><span class="tag">relationships</span><span class="tag">frustration</span><span class="tag">disconnection</span><span class="tag">Gilmour</span></div>
+      <p class="slbl"><i class="ti ti-book-2" aria-hidden="true"></i> The story</p>
+      <p class="stxt">The album's most visceral rocker arrives like a door slammed open. It is about the exhaustion of a relationship where you have given everything and still cannot satisfy the other person — the bewildered, slightly angry question of someone who genuinely does not know what more they can offer.</p>
+      <p class="slbl"><i class="ti ti-music" aria-hidden="true"></i> The music</p>
+      <p class="stxt">Gilmour's guitar here is direct and slightly ragged — less patient than usual, more insistent. After the ambient drift of Cluster One, the directness is deliberate and almost shocking. The song does not wander. It states, repeats, and demands an answer.</p>
+      <p class="slbl"><i class="ti ti-sparkles" aria-hidden="true"></i> Something to know</p>
+      <p class="stxt">Most of the album's lyrics were written by Polly Samson — Gilmour's partner and later wife. She drew on their early relationship and the difficulties of loving someone as emotionally guarded as Gilmour. Many of the album's most personal moments are her words delivered in his voice.</p>
+    </div></div>
+  </div>
+
+  <!-- 3 Poles Apart -->
+  <div class="card" id="c3">
+    <svg class="scene" viewBox="0 0 680 155" xmlns="http://www.w3.org/2000/svg" onclick="tog(3)">
+      <rect width="680" height="155" fill="#07090f"/>
+      <line x1="60" y1="0"   x2="60"  y2="155" stroke="#378ADD" stroke-width=".7" opacity=".4"/>
+      <circle cx="60"  cy="78" r="4" fill="#185FA5" opacity=".5" class="pg"/>
+      <circle cx="60"  cy="78" r="2" fill="#B5D4F4" opacity=".6"/>
+      <line x1="620" y1="0"   x2="620" y2="155" stroke="#BA7517" stroke-width=".7" opacity=".4"/>
+      <circle cx="620" cy="78" r="4" fill="#BA7517" opacity=".5" class="pg2"/>
+      <circle cx="620" cy="78" r="2" fill="#FAC775" opacity=".6"/>
+      <line x1="64" y1="78" x2="616" y2="78" stroke="rgba(255,255,255,0.05)" stroke-width=".5" stroke-dasharray="6 10"/>
+      <circle cx="130" cy="32"  r=".6" fill="#fff" opacity=".3"/><circle cx="210" cy="118" r=".5" fill="#fff" opacity=".25"/>
+      <circle cx="290" cy="48"  r=".7" fill="#fff" opacity=".32"/><circle cx="380" cy="108" r=".5" fill="#fff" opacity=".28"/>
+      <circle cx="460" cy="38"  r=".6" fill="#fff" opacity=".3"/> <circle cx="540" cy="128" r=".5" fill="#fff" opacity=".25"/>
+      <rect x="0"   y="0" width="100" height="155" fill="#26215C" opacity=".06"/>
+      <rect x="580" y="0" width="100" height="155" fill="#3a1a04" opacity=".06"/>
+    </svg>
+    <div class="trow" onclick="tog(3)"><span class="tnum">3</span><div class="tmid"><p class="tname">Poles Apart</p><p class="tdur">7:04</p></div><i class="ti ti-chevron-down tchev" aria-hidden="true"></i></div>
+    <div class="body" id="b3"><div class="inner">
+      <div class="tags"><span class="tag">Syd Barrett</span><span class="tag">Roger Waters</span><span class="tag">loss</span><span class="tag">nostalgia</span></div>
+      <p class="slbl"><i class="ti ti-book-2" aria-hidden="true"></i> The story</p>
+      <p class="stxt">The most emotionally loaded song on the album. It contains two verses: one addressed to Syd Barrett, one to Roger Waters — the two men who defined Pink Floyd and then, in different ways, left it. Gilmour mourns both losses in the same breath, across the same vast distance.</p>
+      <p class="slbl"><i class="ti ti-music" aria-hidden="true"></i> The music</p>
+      <p class="stxt">The song builds from a quiet, searching guitar figure into something vast and aching. Gilmour's slide guitar in the extended outro is among the most expressive playing of his career — less like a solo than like someone trying to say something that words have failed to convey.</p>
+      <p class="slbl"><i class="ti ti-sparkles" aria-hidden="true"></i> Something to know</p>
+      <p class="stxt">The line addressed to Syd — did you know it was you all along — suggests Gilmour always understood who the real genius was. And the verse about Waters shows the wound was still raw years after the split. This song asks whether brilliance and friendship can survive the distance people put between themselves.</p>
+    </div></div>
+  </div>
+
+  <!-- 4 Marooned -->
+  <div class="card" id="c4">
+    <svg class="scene" viewBox="0 0 680 155" xmlns="http://www.w3.org/2000/svg" onclick="tog(4)">
+      <rect width="680" height="155" fill="#060c14"/>
+      <rect x="0" y="0" width="680" height="90" fill="#060c18" opacity=".5"/>
+      <line x1="0" y1="92"  x2="680" y2="92"  stroke="#0C447C" stroke-width=".5" opacity=".45"/>
+      <line x1="0" y1="99"  x2="680" y2="99"  stroke="#0C447C" stroke-width=".4" opacity=".38"/>
+      <line x1="0" y1="106" x2="680" y2="106" stroke="#042C53" stroke-width=".4" opacity=".32"/>
+      <line x1="0" y1="114" x2="680" y2="114" stroke="#042C53" stroke-width=".4" opacity=".26"/>
+      <line x1="0" y1="122" x2="680" y2="122" stroke="#042C53" stroke-width=".3" opacity=".2"/>
+      <line x1="0" y1="132" x2="680" y2="132" stroke="#042C53" stroke-width=".3" opacity=".16"/>
+      <ellipse cx="340" cy="90" rx="28" ry="10" fill="#111810" opacity=".9"/>
+      <ellipse cx="340" cy="86" rx="22" ry="8"  fill="#161e14" opacity=".85"/>
+      <rect x="337" y="74" width="6" height="14" fill="#0c1208" opacity=".9" rx="1"/>
+      <circle cx="340" cy="71" r="4" fill="#0c1208" opacity=".9"/>
+      <ellipse cx="340" cy="96" rx="20" ry="5" fill="#0C447C" opacity=".15"/>
+      <circle cx="100" cy="28" r="18" fill="none" stroke="#185FA5" stroke-width=".5" opacity=".3"/>
+      <circle cx="100" cy="28" r="12" fill="#07101e" opacity=".8"/>
+      <circle cx="200" cy="23" r=".6" fill="#fff" opacity=".35"/><circle cx="450" cy="16" r=".7" fill="#fff" opacity=".4"/>
+      <circle cx="580" cy="38" r=".5" fill="#fff" opacity=".3"/>
+    </svg>
+    <div class="trow" onclick="tog(4)"><span class="tnum">4</span><div class="tmid"><p class="tname">Marooned</p><p class="tdur">5:29</p></div><i class="ti ti-chevron-down tchev" aria-hidden="true"></i></div>
+    <div class="body" id="b4"><div class="inner">
+      <div class="tags"><span class="tag">instrumental</span><span class="tag">isolation</span><span class="tag">Gilmour guitar</span><span class="tag">Grammy winner</span></div>
+      <p class="slbl"><i class="ti ti-book-2" aria-hidden="true"></i> The story</p>
+      <p class="stxt">A purely instrumental piece and perhaps the most purely beautiful thing on the album. The title says everything: someone stranded, cut off, surrounded by vast emptiness. No lyrics are needed. The guitar expresses a loneliness that words would only diminish.</p>
+      <p class="slbl"><i class="ti ti-music" aria-hidden="true"></i> The music</p>
+      <p class="stxt">Gilmour's slide guitar moves with the patience of someone who has accepted their situation. There is no panic, no urgency — just a slow, aching beauty. It is often cited as one of his finest performances on record. The sustained notes hang in the air like something left unsaid.</p>
+      <p class="slbl"><i class="ti ti-sparkles" aria-hidden="true"></i> Something to know</p>
+      <p class="stxt">The track won the Grammy Award for Best Rock Instrumental Performance in 1995 — one of the very few Grammy wins in Pink Floyd's career. It beat competition from Joe Satriani and the Stevie Ray Vaughan estate, which gives some sense of just how extraordinary the playing is.</p>
+    </div></div>
+  </div>
+
+  <!-- 5 A Great Day for Freedom -->
+  <div class="card" id="c5">
+    <svg class="scene" viewBox="0 0 680 155" xmlns="http://www.w3.org/2000/svg" onclick="tog(5)">
+      <rect width="680" height="155" fill="#0a0806"/>
+      <rect x="0"   y="18" width="44" height="12" fill="#1c1510" opacity=".7" rx="1"/><rect x="48"  y="18" width="44" height="12" fill="#1c1510" opacity=".7" rx="1"/>
+      <rect x="96"  y="18" width="44" height="12" fill="#1c1510" opacity=".7" rx="1"/><rect x="144" y="18" width="44" height="12" fill="#1c1510" opacity=".7" rx="1"/>
+      <rect x="0"   y="34" width="60" height="12" fill="#181210" opacity=".7" rx="1"/><rect x="64"  y="34" width="60" height="12" fill="#181210" opacity=".7" rx="1"/>
+      <rect x="128" y="34" width="60" height="12" fill="#181210" opacity=".7" rx="1"/>
+      <rect x="0"   y="50" width="44" height="12" fill="#1c1510" opacity=".7" rx="1"/><rect x="48"  y="50" width="44" height="12" fill="#1c1510" opacity=".7" rx="1"/>
+      <rect x="96"  y="50" width="44" height="12" fill="#1c1510" opacity=".7" rx="1"/><rect x="144" y="50" width="40" height="12" fill="#1c1510" opacity=".65" rx="1"/>
+      <rect x="0"   y="66" width="60" height="12" fill="#181210" opacity=".65" rx="1"/><rect x="64"  y="66" width="58" height="12" fill="#181210" opacity=".6" rx="1"/>
+      <rect x="200" y="0"  width="280" height="155" fill="#0a0806" opacity=".95"/>
+      <rect x="200" y="0"  width="280" height="155" fill="#BA7517" opacity=".022"/>
+      <rect x="184" y="22" width="20" height="10" fill="#1c1510" opacity=".5" rx="1" transform="rotate(-8 194 27)"/>
+      <rect x="188" y="52" width="18" height="9"  fill="#1c1510" opacity=".45" rx="1" transform="rotate(5 197 56)"/>
+      <rect x="478" y="28" width="20" height="10" fill="#1c1510" opacity=".5" rx="1" transform="rotate(10 488 33)"/>
+      <rect x="482" y="58" width="18" height="9"  fill="#1c1510" opacity=".45" rx="1" transform="rotate(-6 491 62)"/>
+      <rect x="492" y="18" width="44" height="12" fill="#1c1510" opacity=".7" rx="1"/><rect x="540" y="18" width="44" height="12" fill="#1c1510" opacity=".7" rx="1"/>
+      <rect x="588" y="18" width="44" height="12" fill="#1c1510" opacity=".7" rx="1"/><rect x="636" y="18" width="44" height="12" fill="#1c1510" opacity=".7" rx="1"/>
+      <rect x="508" y="34" width="60" height="12" fill="#181210" opacity=".7" rx="1"/><rect x="572" y="34" width="60" height="12" fill="#181210" opacity=".7" rx="1"/>
+      <rect x="492" y="50" width="44" height="12" fill="#1c1510" opacity=".7" rx="1"/><rect x="540" y="50" width="44" height="12" fill="#1c1510" opacity=".7" rx="1"/>
+      <rect x="588" y="50" width="44" height="12" fill="#1c1510" opacity=".65" rx="1"/>
+      <rect x="508" y="66" width="60" height="12" fill="#181210" opacity=".65" rx="1"/><rect x="572" y="66" width="60" height="12" fill="#181210" opacity=".6" rx="1"/>
+      <rect x="326" y="108" width="5" height="16" fill="rgba(255,255,255,0.12)" rx="1"/>
+      <circle cx="328" cy="105" r="3.5" fill="rgba(255,255,255,0.12)"/>
+      <rect x="346" y="110" width="5" height="16" fill="rgba(255,255,255,0.1)" rx="1"/>
+      <circle cx="348" cy="107" r="3.5" fill="rgba(255,255,255,0.1)"/>
+    </svg>
+    <div class="trow" onclick="tog(5)"><span class="tnum">5</span><div class="tmid"><p class="tname">A Great Day for Freedom</p><p class="tdur">4:17</p></div><i class="ti ti-chevron-down tchev" aria-hidden="true"></i></div>
+    <div class="body" id="b5"><div class="inner">
+      <div class="tags"><span class="tag">Berlin Wall</span><span class="tag">disillusionment</span><span class="tag">history</span><span class="tag">hope</span></div>
+      <p class="slbl"><i class="ti ti-book-2" aria-hidden="true"></i> The story</p>
+      <p class="stxt">One of the most overlooked songs in the Floyd catalogue — written about the fall of the Berlin Wall, not as a celebration but as a meditation on what followed. The wall came down, and the world discovered that freedom is not a simple thing. The problems did not dissolve; they just took different shapes.</p>
+      <p class="slbl"><i class="ti ti-music" aria-hidden="true"></i> The music</p>
+      <p class="stxt">Gilmour's vocal is unusually tender — almost fragile. The song does not soar or triumph. It walks quietly, as if through the aftermath of something enormous that has left everyone slightly stunned. The melody carries both hope and its deflation in the same breath.</p>
+      <p class="slbl"><i class="ti ti-sparkles" aria-hidden="true"></i> Something to know</p>
+      <p class="stxt">The song was written while the euphoria of November 1989 was still in the air, but recorded as the complications began to emerge. Gilmour was watching the news with the same attention Floyd had always brought to political events — and finding, as usual, that the truth was more complicated than the headline.</p>
+    </div></div>
+  </div>
+
+  <!-- 6 Wearing the Inside Out -->
+  <div class="card" id="c6">
+    <svg class="scene" viewBox="0 0 680 155" xmlns="http://www.w3.org/2000/svg" onclick="tog(6)">
+      <rect width="680" height="155" fill="#080810"/>
+      <rect x="40"  y="18"  width="600" height="119" fill="none" stroke="#26215C" stroke-width=".6" opacity=".4"/>
+      <rect x="80"  y="32"  width="520" height="91"  fill="none" stroke="#3C3489" stroke-width=".6" opacity=".42"/>
+      <rect x="120" y="46"  width="440" height="63"  fill="none" stroke="#534AB7" stroke-width=".6" opacity=".44"/>
+      <rect x="160" y="58"  width="360" height="39"  fill="none" stroke="#7F77DD" stroke-width=".7" opacity=".46"/>
+      <rect x="200" y="67"  width="280" height="21"  fill="none" stroke="#AFA9EC" stroke-width=".6" opacity=".5"/>
+      <rect x="240" y="72"  width="200" height="11"  fill="none" stroke="#CECBF6" stroke-width=".5" opacity=".45"/>
+      <rect x="280" y="75" width="120" height="5"  fill="#7F77DD" opacity=".15"/>
+      <rect x="300" y="76" width="80"  height="3"  fill="#AFA9EC" opacity=".2" class="pg"/>
+      <circle cx="340" cy="78" r="4" fill="#EEEDFE" opacity=".35" class="pg"/>
+      <circle cx="340" cy="78" r="1.8" fill="#EEEDFE" opacity=".6"/>
+    </svg>
+    <div class="trow" onclick="tog(6)"><span class="tnum">6</span><div class="tmid"><p class="tname">Wearing the Inside Out</p><p class="tdur">6:49</p></div><i class="ti ti-chevron-down tchev" aria-hidden="true"></i></div>
+    <div class="body" id="b6"><div class="inner">
+      <div class="tags"><span class="tag">Richard Wright</span><span class="tag">depression</span><span class="tag">isolation</span><span class="tag">the self</span></div>
+      <p class="slbl"><i class="ti ti-book-2" aria-hidden="true"></i> The story</p>
+      <p class="stxt">Richard Wright's only lead vocal on the album — and his most confessional moment since the early 1970s. The song is about depression and emotional isolation: the experience of turning entirely inward, away from others, wearing the inside out so that your inner turmoil becomes your external face.</p>
+      <p class="slbl"><i class="ti ti-music" aria-hidden="true"></i> The music</p>
+      <p class="stxt">Wright's voice has an extraordinary quality here — soft, slightly uncertain, as if he is not entirely sure he should be saying these things out loud. The restraint is what makes it devastating. Anthony Moore's lyrics cut directly to the experience of depression without melodrama.</p>
+      <p class="slbl"><i class="ti ti-sparkles" aria-hidden="true"></i> Something to know</p>
+      <p class="stxt">Wright had been largely sidelined during the Roger Waters era of the band. The Division Bell was partly a restoration of his place in Floyd. This song — his to sing, his to own — was a significant moment of recovery, both musical and personal. He had been away, turned inward. Now he was back.</p>
+    </div></div>
+  </div>
+
+  <!-- 7 Take It Back -->
+  <div class="card" id="c7">
+    <svg class="scene" viewBox="0 0 680 155" xmlns="http://www.w3.org/2000/svg" onclick="tog(7)">
+      <rect width="680" height="155" fill="#080c10"/>
+      <ellipse cx="218" cy="78" rx="55" ry="24" fill="#131e28" opacity=".8"/>
+      <rect x="186" y="66" width="64" height="24" fill="#151e2a" opacity=".75" rx="8"/>
+      <rect x="238" y="58" width="8" height="20" fill="#1a2535" opacity=".7" rx="3"/><rect x="248" y="56" width="8" height="22" fill="#1a2535" opacity=".7" rx="3"/>
+      <rect x="258" y="58" width="8" height="20" fill="#1a2535" opacity=".7" rx="3"/><rect x="268" y="61" width="7" height="16" fill="#1a2535" opacity=".65" rx="3"/>
+      <ellipse cx="462" cy="78" rx="55" ry="24" fill="#1e1510" opacity=".8"/>
+      <rect x="430" y="66" width="64" height="24" fill="#201810" opacity=".75" rx="8"/>
+      <rect x="412" y="58" width="8" height="20" fill="#2a2018" opacity=".7" rx="3"/><rect x="422" y="56" width="8" height="22" fill="#2a2018" opacity=".7" rx="3"/>
+      <rect x="432" y="58" width="8" height="20" fill="#2a2018" opacity=".65" rx="3"/><rect x="442" y="61" width="7" height="16" fill="#2a2018" opacity=".6" rx="3"/>
+      <circle cx="340" cy="78" r="10" fill="none" stroke="#378ADD" stroke-width=".6" opacity=".4"/>
+      <circle cx="340" cy="78" r="5"  fill="#185FA5" opacity=".25" class="pg"/>
+      <circle cx="340" cy="78" r="2.5" fill="#B5D4F4" opacity=".5" class="pg"/>
+    </svg>
+    <div class="trow" onclick="tog(7)"><span class="tnum">7</span><div class="tmid"><p class="tname">Take It Back</p><p class="tdur">6:13</p></div><i class="ti ti-chevron-down tchev" aria-hidden="true"></i></div>
+    <div class="body" id="b7"><div class="inner">
+      <div class="tags"><span class="tag">regret</span><span class="tag">love</span><span class="tag">admission</span><span class="tag">single</span></div>
+      <p class="slbl"><i class="ti ti-book-2" aria-hidden="true"></i> The story</p>
+      <p class="stxt">A song about recognising, too late, that you were wrong — in how you treated someone, in what you chose. The title has a double meaning: taking back what was said and done, and taking back the relationship. The admission is sincere; whether it is heard is another matter entirely.</p>
+      <p class="slbl"><i class="ti ti-music" aria-hidden="true"></i> The music</p>
+      <p class="stxt">Released as a single, it is the album's most commercially shaped track — wider, more radio-friendly than the surrounding songs. The production has a slight sheen that sets it slightly apart, though Gilmour's guitar in the outro finds its way back to the album's more introspective territory.</p>
+      <p class="slbl"><i class="ti ti-sparkles" aria-hidden="true"></i> Something to know</p>
+      <p class="stxt">The song was used in a Volkswagen advertisement in the mid-1990s — a fairly unusual step for Pink Floyd, who had historically resisted commercial use of their music. It gave the album a wider reach than it might otherwise have had, and remains the track most casual listeners recognise from it.</p>
+    </div></div>
+  </div>
+
+  <!-- 8 Coming Back to Life -->
+  <div class="card" id="c8">
+    <svg class="scene" viewBox="0 0 680 155" xmlns="http://www.w3.org/2000/svg" onclick="tog(8)">
+      <rect width="680" height="155" fill="#060c07"/>
+      <rect x="0" y="108" width="680" height="47" fill="#0a1008" opacity=".9"/>
+      <line x1="0" y1="108" x2="680" y2="108" stroke="#1D9E75" stroke-width=".5" opacity=".4"/>
+      <line x1="340" y1="108" x2="340" y2="52" stroke="#3B6D11" stroke-width="1.5" opacity=".6"/>
+      <path d="M340,76 Q318,60 310,46" stroke="#3B6D11" stroke-width="1.2" fill="none" opacity=".55"/>
+      <path d="M340,76 Q322,68 310,46" stroke="#3B6D11" stroke-width=".6" fill="none" opacity=".35"/>
+      <path d="M340,66 Q362,52 370,38" stroke="#3B6D11" stroke-width="1.2" fill="none" opacity=".55"/>
+      <path d="M340,66 Q358,60 370,38" stroke="#3B6D11" stroke-width=".6" fill="none" opacity=".35"/>
+      <rect x="0" y="0"  width="680" height="50" fill="#0f0c06" opacity=".9"/>
+      <line x1="0" y1="50" x2="680" y2="50" stroke="#BA7517" stroke-width=".5" opacity=".25"/>
+      <circle cx="340" cy="50" r="20" fill="#0f0c06" opacity=".95"/>
+      <circle cx="340" cy="50" r="12" fill="#BA7517" opacity=".12" class="pg"/>
+      <circle cx="340" cy="50" r="6"  fill="#EF9F27" opacity=".2" class="pg"/>
+      <circle cx="80"  cy="18" r=".6" fill="#fff" opacity=".3"/> <circle cx="200" cy="10" r=".5" fill="#fff" opacity=".25"/>
+      <circle cx="520" cy="16" r=".6" fill="#fff" opacity=".28"/><circle cx="620" cy="26" r=".5" fill="#fff" opacity=".22"/>
+    </svg>
+    <div class="trow" onclick="tog(8)"><span class="tnum">8</span><div class="tmid"><p class="tname">Coming Back to Life</p><p class="tdur">6:19</p></div><i class="ti ti-chevron-down tchev" aria-hidden="true"></i></div>
+    <div class="body" id="b8"><div class="inner">
+      <div class="tags"><span class="tag">renewal</span><span class="tag">awakening</span><span class="tag">love</span><span class="tag">numbness ending</span></div>
+      <p class="slbl"><i class="ti ti-book-2" aria-hidden="true"></i> The story</p>
+      <p class="stxt">The emotional turning point of the album. After songs about distance, isolation and walls, this one is about emergence — waking up after a long period of numbness, the world coming back into focus. It is one of the most quietly joyful things Floyd ever recorded, and all the more affecting for how unexpected the feeling is.</p>
+      <p class="slbl"><i class="ti ti-music" aria-hidden="true"></i> The music</p>
+      <p class="stxt">The guitar intro is one of Gilmour's most tender — clean, unhurried, each note given room to breathe. The song does not rush to its subject. It arrives the way the feeling it describes arrives: gradually, almost cautiously, as if afraid of being wrong about the light returning.</p>
+      <p class="slbl"><i class="ti ti-sparkles" aria-hidden="true"></i> Something to know</p>
+      <p class="stxt">Polly Samson has said the song is partly about her relationship with Gilmour — finding someone who brought her back to herself. The Division Bell understands that recovery and despair coexist, often in the same room. This is its most hopeful window, placed deliberately at the album's centre of gravity.</p>
+    </div></div>
+  </div>
+
+  <!-- 9 Keep Talking -->
+  <div class="card" id="c9">
+    <svg class="scene" viewBox="0 0 680 155" xmlns="http://www.w3.org/2000/svg" onclick="tog(9)">
+      <rect width="680" height="155" fill="#07080f"/>
+      <path d="M340,78 m-10,0 a10,10 0 0,1 20,0" fill="none" stroke="#534AB7" stroke-width=".8" opacity=".6"/>
+      <path d="M340,78 m-10,0 a10,10 0 0,0 20,0" fill="none" stroke="#534AB7" stroke-width=".7" opacity=".4"/>
+      <path d="M340,78 m-22,0 a22,22 0 0,1 44,0" fill="none" stroke="#534AB7" stroke-width=".7" opacity=".55"/>
+      <path d="M340,78 m-22,0 a22,22 0 0,0 44,0" fill="none" stroke="#3C3489" stroke-width=".6" opacity=".35"/>
+      <path d="M340,78 m-36,0 a36,36 0 0,1 72,0" fill="none" stroke="#3C3489" stroke-width=".7" opacity=".5"/>
+      <path d="M340,78 m-36,0 a36,36 0 0,0 72,0" fill="none" stroke="#26215C" stroke-width=".5" opacity=".3"/>
+      <path d="M340,78 m-52,0 a52,52 0 0,1 104,0" fill="none" stroke="#3C3489" stroke-width=".6" opacity=".44"/>
+      <path d="M340,78 m-52,0 a52,52 0 0,0 104,0" fill="none" stroke="#26215C" stroke-width=".5" opacity=".28"/>
+      <path d="M340,78 m-70,0 a70,70 0 0,1 140,0" fill="none" stroke="#26215C" stroke-width=".6" opacity=".38"/>
+      <path d="M340,78 m-70,0 a70,70 0 0,0 140,0" fill="none" stroke="#1a1650" stroke-width=".4" opacity=".25"/>
+      <path d="M340,78 m-90,0 a90,90 0 0,1 180,0" fill="none" stroke="#26215C" stroke-width=".5" opacity=".32"/>
+      <path d="M340,78 m-112,0 a112,112 0 0,1 224,0" fill="none" stroke="#1a1650" stroke-width=".4" opacity=".28"/>
+      <circle cx="340" cy="78" r="5" fill="#7F77DD" opacity=".5" class="pg"/>
+      <circle cx="340" cy="78" r="2.5" fill="#EEEDFE" opacity=".75"/>
+    </svg>
+    <div class="trow" onclick="tog(9)"><span class="tnum">9</span><div class="tmid"><p class="tname">Keep Talking</p><p class="tdur">6:11</p></div><i class="ti ti-chevron-down tchev" aria-hidden="true"></i></div>
+    <div class="body" id="b9"><div class="inner">
+      <div class="tags"><span class="tag">communication</span><span class="tag">Stephen Hawking</span><span class="tag">connection</span><span class="tag">language</span></div>
+      <p class="slbl"><i class="ti ti-book-2" aria-hidden="true"></i> The story</p>
+      <p class="stxt">The album's thesis statement, built around a speech by Stephen Hawking: "For millions of years, mankind lived just like the animals. Then something happened which unleashed the power of our imagination. We learned to talk." The song is about what we risk when we stop.</p>
+      <p class="slbl"><i class="ti ti-music" aria-hidden="true"></i> The music</p>
+      <p class="stxt">Hawking's synthesised voice is woven into the fabric of the track — not as a gimmick but as the song's beating heart. The groove underneath is one of the most driven things Floyd ever recorded. Nick Mason's drums push it forward with real urgency, a reminder that the band could still move.</p>
+      <p class="slbl"><i class="ti ti-sparkles" aria-hidden="true"></i> Something to know</p>
+      <p class="stxt">Hawking agreed to appear after hearing the concept — he was an admirer of Pink Floyd. Gilmour saw Hawking's life as a demonstration of the very thing the song argues for: that as long as communication exists, something essential survives. They met several times during the recording. Both men were clearly moved by the collaboration.</p>
+    </div></div>
+  </div>
+
+  <!-- 10 Lost for Words -->
+  <div class="card" id="c10">
+    <svg class="scene" viewBox="0 0 680 155" xmlns="http://www.w3.org/2000/svg" onclick="tog(10)">
+      <rect width="680" height="155" fill="#080a0e"/>
+      <rect x="220" y="32" width="240" height="70" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width=".8" rx="12"/>
+      <path d="M290,102 L278,126 L308,102" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width=".8"/>
+      <line x1="248" y1="58" x2="368" y2="58" stroke="rgba(255,255,255,0.1)"  stroke-width=".6" stroke-dasharray="3 5"/>
+      <line x1="248" y1="70" x2="342" y2="70" stroke="rgba(255,255,255,0.08)" stroke-width=".6" stroke-dasharray="3 5"/>
+      <line x1="248" y1="82" x2="356" y2="82" stroke="rgba(255,255,255,0.06)" stroke-width=".6" stroke-dasharray="3 5"/>
+      <rect x="420" y="46" width="130" height="50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width=".6" rx="8"/>
+      <path d="M500,96 L515,114 L530,96" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width=".6"/>
+      <circle cx="400" cy="78" r="3" fill="rgba(255,255,255,0.08)" class="pd"/>
+    </svg>
+    <div class="trow" onclick="tog(10)"><span class="tnum">10</span><div class="tmid"><p class="tname">Lost for Words</p><p class="tdur">5:15</p></div><i class="ti ti-chevron-down tchev" aria-hidden="true"></i></div>
+    <div class="body" id="b10"><div class="inner">
+      <div class="tags"><span class="tag">Roger Waters</span><span class="tag">bitterness</span><span class="tag">estrangement</span><span class="tag">olive branch</span></div>
+      <p class="slbl"><i class="ti ti-book-2" aria-hidden="true"></i> The story</p>
+      <p class="stxt">Almost certainly addressed to Roger Waters — an olive branch that was never accepted. The lyrics describe a friendship destroyed by bitterness, an attempt at reconciliation met with contempt, and the exhausted resignation that follows. It is one of the saddest songs on the album precisely because its gesture goes unanswered.</p>
+      <p class="slbl"><i class="ti ti-music" aria-hidden="true"></i> The music</p>
+      <p class="stxt">Gilmour's vocal is weary — the voice of someone who has tried and been refused. The arrangement is gentle, almost resigned, which gives the lyrics room to land without drama. The song does not shout. It simply states, and waits, and when no reply comes, it continues without one.</p>
+      <p class="slbl"><i class="ti ti-sparkles" aria-hidden="true"></i> Something to know</p>
+      <p class="stxt">Waters has never publicly acknowledged the song. His departure from Pink Floyd in 1985 was acrimonious. They briefly reunited for the Live 8 concert in 2005, sharing a stage for the first time in 24 years. That night — not this song — was the closest thing to a resolution the public ever witnessed.</p>
+    </div></div>
+  </div>
+
+  <!-- 11 High Hopes -->
+  <div class="card" id="c11">
+    <svg class="scene" viewBox="0 0 680 155" xmlns="http://www.w3.org/2000/svg" onclick="tog(11)">
+      <rect width="680" height="155" fill="#0d0b06"/>
+      <rect x="0" y="0"   width="680" height="48"  fill="#130f06" opacity=".9"/>
+      <rect x="0" y="48"  width="680" height="38"  fill="#0f0c05" opacity=".9"/>
+      <rect x="0" y="86"  width="680" height="69"  fill="#0a0804" opacity=".9"/>
+      <rect x="0" y="108" width="680" height="47"  fill="#0d1008" opacity=".8"/>
+      <line x1="0" y1="108" x2="680" y2="108" stroke="#3B6D11" stroke-width=".5" opacity=".35"/>
+      <rect x="280" y="52"  width="16" height="58" fill="#100e07" opacity=".85" rx="1"/>
+      <rect x="274" y="49"  width="28" height="8"  fill="#100e07" opacity=".85" rx="1"/>
+      <polygon points="288,42 282,49 294,49" fill="#100e07" opacity=".8"/>
+      <rect x="320" y="62"  width="12" height="48" fill="#0e0c06" opacity=".8" rx="1"/>
+      <polygon points="326,55 321,62 331,62" fill="#0e0c06" opacity=".75"/>
+      <rect x="348" y="69"  width="10" height="40" fill="#0e0c06" opacity=".75" rx="1"/>
+      <path d="M120,62 Q108,62 104,75 L104,88 Q104,92 108,92 L132,92 Q136,92 136,88 L136,75 Q132,62 120,62 Z" fill="none" stroke="#BA7517" stroke-width=".8" opacity=".55"/>
+      <rect x="118" y="59" width="4" height="6" fill="#BA7517" opacity=".5"/>
+      <circle cx="120" cy="89" r="3" fill="none" stroke="#BA7517" stroke-width=".6" opacity=".4"/>
+      <path d="M560,62 Q548,62 544,75 L544,88 Q544,92 548,92 L572,92 Q576,92 576,88 L576,75 Q572,62 560,62 Z" fill="none" stroke="#BA7517" stroke-width=".8" opacity=".5"/>
+      <rect x="558" y="59" width="4" height="6" fill="#BA7517" opacity=".45"/>
+      <circle cx="560" cy="89" r="3" fill="none" stroke="#BA7517" stroke-width=".6" opacity=".38"/>
+      <path d="M0,118 Q170,113 340,116 Q510,119 680,114" fill="none" stroke="#185FA5" stroke-width=".6" opacity=".3"/>
+      <circle cx="60"  cy="20" r=".7" fill="#fff" opacity=".38"/><circle cx="155" cy="12" r=".5" fill="#fff" opacity=".32"/>
+      <circle cx="440" cy="16" r=".6" fill="#fff" opacity=".35"/><circle cx="580" cy="28" r=".5" fill="#fff" opacity=".28"/>
+    </svg>
+    <div class="trow" onclick="tog(11)"><span class="tnum">11</span><div class="tmid"><p class="tname">High Hopes</p><p class="tdur">8:32</p></div><i class="ti ti-chevron-down tchev" aria-hidden="true"></i></div>
+    <div class="body" id="b11"><div class="inner">
+      <div class="tags"><span class="tag">childhood</span><span class="tag">nostalgia</span><span class="tag">time</span><span class="tag">Cambridge</span></div>
+      <p class="slbl"><i class="ti ti-book-2" aria-hidden="true"></i> The story</p>
+      <p class="stxt">One of the most magnificent closing tracks in Pink Floyd's entire catalogue. About childhood, the passage of time, and the distance between who you were and who you became. The bells that open it are real Cambridge bells — recorded in Gilmour's hometown. Everything in the song is about looking back across an unbridgeable distance.</p>
+      <p class="slbl"><i class="ti ti-music" aria-hidden="true"></i> The music</p>
+      <p class="stxt">The arrangement builds slowly and with great dignity, from the opening bells through an aching guitar figure to a climax of genuine grandeur. Gilmour's vocal is measured and unhurried — the voice of someone who has made peace with loss, or at least learned to carry it. B.J. Cole's pedal steel adds a yearning that suits the song perfectly.</p>
+      <p class="slbl"><i class="ti ti-sparkles" aria-hidden="true"></i> Something to know</p>
+      <p class="stxt">This was the last song on the last Pink Floyd album before a 20-year gap. As a goodbye, it is almost unbearably fitting. The final image — of the endless river flowing, and of high hopes fading as the world turns — became the title and concept of their 2014 instrumental album. High Hopes did not close a chapter. It turned out to be the final word.</p>
+    </div></div>
+  </div>
+
+</div>
+
+<script>
+  function tog(n) {
+    const card = document.getElementById('c' + n);
+    const body = document.getElementById('b' + n);
+    const inner = body.querySelector('.inner');
+    const isOpen = card.classList.contains('open');
+    [1,2,3,4,5,6,7,8,9,10,11].forEach(i => {
+      document.getElementById('c' + i).classList.remove('open');
+      document.getElementById('b' + i).style.maxHeight = '0';
+    });
+    if (!isOpen) {
+      card.classList.add('open');
+      body.style.maxHeight = (inner.scrollHeight + 40) + 'px';
+    }
+  }
+</script>
+</body>
+</html>
