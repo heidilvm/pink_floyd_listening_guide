@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pink Floyd — Listening Guides</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="https://unpkg.com/@fontsource/playfair-display@5.0.8/index.css">
   <style>
     :root {
@@ -83,6 +84,7 @@
       text-decoration: none;
       z-index: 10;
       transform: translate(-50%, -50%);
+      transition: left 0.7s cubic-bezier(.4,0,.2,1), top 0.7s cubic-bezier(.4,0,.2,1);
     }
 
     .circle-wrap {
@@ -160,6 +162,46 @@
     #animals  { left: 32%;  top: 74%; }
     #division { left: 21%;  top: 41%; }
 
+    /* ── View toggle button ─────────────────────── */
+    .view-toggle {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 20;
+      background: none;
+      border: 0.5px solid rgba(255,255,255,.3);
+      color: rgba(255,255,255,.55);
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      padding: 9px 22px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: border-color .2s, color .2s;
+      white-space: nowrap;
+    }
+    .view-toggle:hover {
+      border-color: rgba(255,255,255,.65);
+      color: rgba(255,255,255,.88);
+    }
+
+    /* ── Chrono connecting line ──────────────────── */
+    .chrono-line {
+      position: absolute;
+      top: 50%;
+      left: 10%;
+      width: 80%;
+      height: 0.5px;
+      background: rgba(255,255,255,.12);
+      transform: translateY(-50%);
+      opacity: 0;
+      transition: opacity 0.5s ease 0.3s;
+      pointer-events: none;
+    }
+    #stage.chrono .chrono-line { opacity: 1; }
+
     /* ── Float animations ───────────────────────── */
     @keyframes f1 { 0%,100%{translate:0 0}    50%{translate:0 -15px} }
     @keyframes f2 { 0%,100%{translate:0 -8px} 50%{translate:0  8px}  }
@@ -221,7 +263,7 @@
   <div class="hub">
     <p class="hub-eye">A listening guide</p>
     <p class="hub-title">Select an album to explore</p>
-    <p class="hub-sub">Tap to enter · More albums coming soon</p>
+    <p class="hub-sub">Tap to enter</p>
   </div>
 
   <!-- ── DARK SIDE OF THE MOON (live) ── -->
@@ -356,9 +398,55 @@
   <p class="album-name">The Division Bell</p>
   <p class="album-meta">1994 · 11 tracks</p>
 </a>
-  <!-- Mobile layout wrapper (hidden on desktop via CSS) -->
+  <div class="chrono-line"></div>
+  <button class="view-toggle" id="viewToggle">View chronologically</button>
 
 </div>
+
+<!-- Chrono toggle -->
+<script>
+  const pentagon = {
+    meddle:   { left: '50%', top: '20%' },
+    dsotm:    { left: '79%', top: '41%' },
+    wywh:     { left: '68%', top: '74%' },
+    animals:  { left: '32%', top: '74%' },
+    division: { left: '21%', top: '41%' },
+  };
+
+  // Chronological order: Meddle(1971) → DSOTM(1973) → WYWH(1975) → Animals(1977) → Division Bell(1994)
+  const chrono = {
+    meddle:   { left: '10%', top: '50%' },
+    dsotm:    { left: '28%', top: '50%' },
+    wywh:     { left: '50%', top: '50%' },
+    animals:  { left: '72%', top: '50%' },
+    division: { left: '90%', top: '50%' },
+  };
+
+  let ischrono = false;
+
+  document.getElementById('viewToggle').addEventListener('click', function () {
+    ischrono = !ischrono;
+    const stage = document.getElementById('stage');
+    const positions = ischrono ? chrono : pentagon;
+
+    Object.entries(positions).forEach(([id, pos]) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.style.left = pos.left;
+      el.style.top  = pos.top;
+      if (ischrono) {
+        el.style.animation = 'none';
+        el.style.translate  = '0 0';
+      } else {
+        el.style.animation = '';
+        el.style.translate  = '';
+      }
+    });
+
+    stage.classList.toggle('chrono', ischrono);
+    this.textContent = ischrono ? 'Randomise' : 'View chronologically';
+  });
+</script>
 
 <!-- Mobile: reflow into grid -->
 <script>
