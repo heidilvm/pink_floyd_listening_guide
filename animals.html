@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animals — Pink Floyd Listening Guide</title>
+  <link rel="stylesheet" href="https://unpkg.com/@fontsource/playfair-display@5.0.8/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <style>
+    :root { --font-sans: system-ui, -apple-system, sans-serif; --font-serif: 'Playfair Display', Georgia, serif; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #04040a; min-height: 100vh; display: flex; align-items: flex-start; justify-content: center; padding: 2rem 1rem; font-family: var(--font-sans); }
+    .guide { width: 100%; max-width: 680px; background: #08080e; border-radius: 12px; overflow: hidden; border: 0.5px solid rgba(255,255,255,0.1); }
+    .guide-header { padding: 24px 20px 18px; border-bottom: 0.5px solid rgba(255,255,255,0.08); margin-bottom: 6px; }
+    .guide-eyebrow { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.28); margin-bottom: 8px; }
+    .guide-title { font-family: var(--font-serif); font-size: 26px; font-weight: 400; font-style: italic; color: #ede8e0; line-height: 1.2; margin-bottom: 5px; }
+    .guide-sub { font-size: 12px; color: rgba(255,255,255,.28); }
+    .card { background: #0e0e16; border-top: 0.5px solid rgba(255,255,255,.1); overflow: hidden; margin-bottom: 1px; }
+    .scene { width: 100%; display: block; cursor: pointer; }
+    .trow { display: flex; align-items: center; gap: 12px; padding: 13px 18px; cursor: pointer; border-top: 0.5px solid rgba(255,255,255,.08); background: #0e0e16; transition: background 0.2s; }
+    .trow:hover { background: #131320; }
+    .tnum { font-size: 11px; color: rgba(255,255,255,.3); min-width: 15px; }
+    .tmid { flex: 1; min-width: 0; }
+    .tname { font-family: var(--font-serif); font-size: 14px; font-weight: 400; color: rgba(255,255,255,.9); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin: 0; }
+    .tdur { font-size: 11px; color: rgba(255,255,255,.3); margin-top: 2px; }
+    .tchev { font-size: 15px; color: rgba(255,255,255,.35); transition: transform .32s ease; flex-shrink: 0; }
+    .card.open .tchev { transform: rotate(180deg); }
+    .body { max-height: 0; overflow: hidden; transition: max-height .48s cubic-bezier(.4,0,.2,1); }
+    .inner { padding: 18px 18px 24px; border-top: 0.5px solid rgba(255,255,255,.08); }
+    .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 18px; }
+    .tag { font-size: 10px; padding: 3px 10px; border-radius: 100px; border: 0.5px solid rgba(255,255,255,.12); color: rgba(255,255,255,.38); text-transform: uppercase; letter-spacing: .07em; }
+    .slbl { font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.3); margin: 16px 0 6px; display: flex; align-items: center; gap: 4px; }
+    .slbl:first-of-type { margin-top: 0; }
+    .slbl i { font-size: 12px; }
+    .stxt { font-size: 13.5px; line-height: 1.74; color: rgba(255,255,255,.62); }
+    @keyframes pulse  { 0%,100%{opacity:.3}  50%{opacity:.85} }
+    @keyframes pulse2 { 0%,100%{opacity:.2}  50%{opacity:.65} }
+    @keyframes drift  { 0%,100%{opacity:.35} 50%{opacity:.75} }
+    @keyframes float  { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+    .pg  { animation: pulse  4s ease-in-out infinite; }
+    .pg2 { animation: pulse2 7s ease-in-out 2s infinite; }
+    .pd  { animation: drift  5s ease-in-out 1s infinite; }
+    .pf  { animation: float  6s ease-in-out infinite; }
+    @media (max-width: 480px) { body { padding: 0; } .guide { border-radius: 0; border: none; } .guide-title { font-size: 22px; } }
+  </style>
+</head>
+<body>
+<div class="guide">
+
+  <div class="guide-header">
+    <p class="guide-eyebrow">Pink Floyd · 1977 · A listening guide</p>
+    <p class="guide-title">Animals</p>
+    <p class="guide-sub">Tap each track as it begins to play</p>
+  </div>
+
+  <!-- 1 Pigs on the Wing 1 -->
+  <div class="card" id="c1">
+    <svg class="scene" viewBox="0 0 680 155" xmlns="http://www.w3.org/2000/svg" onclick="tog(1)">
+      <rect width="680" height="155" fill="#0d0a06"/>
+      <!-- Warm intimate amber — the calm before the storm -->
+      <rect x="0" y="0" width="680" height="155" fill="#BA7517" opacity=".03"/>
+      <!-- Single candle flame — intimate, personal, warm -->
+      <rect x="336" y="72" width="8" height="55" fill="#c8a870" opacity=".18" rx="2"/>
+      <ellipse cx="340" cy="68" rx="7" ry="10" fill="#EF9F27" opacity=".35" class="pg"/>
+      <ellipse cx="340" cy="64" rx="4" ry="7"  fill="#FAC775" opacity=".55" class="pg"/>
+      <ellipse cx="340" cy="61" rx="2" ry="4"  fill="#fff"    opacity=".5"  class="pg"/>
+      <!-- Warm glow around flame -->
+      <circle cx="340" cy="68" r="28" fill="#BA7517" opacity=".06" class="pg2"/>
+      <circle cx="340" cy="68" r="16" fill="#EF9F27" opacity=".08" class="pg"/>
+      <!-- Two small figures side by side — Wings 1 is Waters to his partner -->
+      <rect x="298" y="112" width="6" height="18" fill="#4a3010" opacity=".6" rx="1"/>
+      <circle cx="301" cy="109" r="4" fill="#4a3010" opacity=".6"/>
+      <rect x="376" y="112" width="6" height="18" fill="#4a3010" opacity=".6" rx="1"/>
+      <circle cx="379" cy="109" r="4" fill="#4a3010" opacity=".6"/>
+      <!-- Ground line -->
+      <line x1="0" y1="130" x2="680" y2="130" stroke="#3a2510" stroke-width=".5" opacity=".4"/>
+      <!-- Stars -->
+      <circle cx="80"  cy="22" r=".6" fill="#fff" opacity=".32"/>
+      <circle cx="200" cy="14" r=".5" fill="#fff" opacity=".28"/>
+      <circle cx="480" cy="18" r=".6" fill="#fff" opacity=".3"/>
+      <circle cx="580" cy="30" r=".5" fill="#fff" opacity=".25"/>
+    </svg>
+    <div class="trow" onclick="tog(1)">
+      <span class="tnum">1</span>
+      <div class="tmid"><p class="tname">Pigs on the Wing (Part 1)</p><p class="tdur">1:24</p></div>
+      <i class="ti ti-chevron-down tchev" aria-hidden="true"></i>
+    </div>
+    <div class="body" id="b1"><div class="inner">
+      <div class="tags"><span class="tag">love</span><span class="tag">intimacy</span><span class="tag">acoustic</span><span class="tag">prologue</span></div>
+      <p class="slbl"><i class="ti ti-book-2" aria-hidden="true"></i> The story</p>
+      <p class="stxt">A startling way to open an album of such fury — a short, tender acoustic love song. Roger Waters wrote it for his then-wife Carolyne Christie. It stands as a personal prologue: before the cold political rage begins, Waters plants a flag for private human warmth. It is the still point before the storm.</p>
+      <p class="slbl"><i class="ti ti-music" aria-hidden="true"></i> The music</p>
+      <p class="stxt">Just acoustic guitar and Waters' voice — the sparest thing on the album. No drums, no keyboards, no effects. After the lush production of Wish You Were Here, the nakedness is deliberate and slightly disarming. You're barely inside the front door before the warmth is established.</p>
+      <p class="slbl"><i class="ti ti-sparkles" aria-hidden="true"></i> Something to know</p>
+      <p class="stxt">The album's structure is a deliberate act of framing — these two brief acoustic bookends wrap the long, furious centrepiece tracks in something human and personal. Roger Waters has said the love songs exist to remind you what is worth protecting. The anger that follows is in service of that.</p>
+    </div></div>
+  </div>
+
+  <!-- 2 Dogs -->
+  <div class="card" id="c2">
+    <svg class="scene" viewBox="0 0 680 155" xmlns="http://www.w3.org/2000/svg" onclick="tog(2)">
+      <rect width="680" height="155" fill="#07080c"/>
+      <!-- Cold corporate grid — the world of the dog -->
+      <line x1="0"   y1="30"  x2="680" y2="30"  stroke="#1a3a5c" stroke-width=".4" opacity=".4"/>
+      <line x1="0"   y1="60"  x2="680" y2="60"  stroke="#1a3a5c" stroke-width=".4" opacity=".4"/>
+      <line x1="0"   y1="90"  x2="680" y2="90"  stroke="#1a3a5c" stroke-width=".4" opacity=".4"/>
+      <line x1="0"   y1="120" x2="680" y2="120" stroke="#1a3a5c" stroke-width=".4" opacity=".4"/>
+      <line x1="136" y1="0"   x2="136" y2="155" stroke="#1a3a5c" stroke-width=".4" opacity=".4"/>
+      <line x1="272" y1="0"   x2="272" y2="155" stroke="#1a3a5c" stroke-width=".4" opacity=".4"/>
+      <line x1="408" y1="0"   x2="408" y2="155" stroke="#1a3a5c" stroke-width=".4" opacity=".4"/>
+      <line x1="544" y1="0"   x2="544" y2="155" stroke="#1a3a5c" stroke-width=".4" opacity=".4"/>
+      <!-- Lone dog silhouette — hunched, alone, cornered -->
+      <!-- Body -->
+      <ellipse cx="340" cy="88" rx="38" ry="22" fill="#0d1018" opacity=".9"/>
+      <!-- Head -->
+      <ellipse cx="372" cy="76" rx="18" ry="16" fill="#0d1018" opacity=".9"/>
+      <!-- Snout -->
+      <ellipse cx="388" cy="80" rx="8" ry="7" fill="#0d1018" opacity=".85"/>
+      <!-- Ear -->
+      <polygon points="380,62 370,58 378,72" fill="#0d1018" opacity=".85"/>
+      <!-- Tail down — defeated -->
+      <path d="M302,88 Q288,100 280,112" stroke="#0d1018" stroke-width="5" fill="none" opacity=".85" stroke-linecap="round"/>
+      <!-- Legs -->
+      <line x1="320" y1="108" x2="316" y2="130" stroke="#0d1018" stroke-width="5" stroke-linecap="round" opacity=".85"/>
+      <line x1="340" y1="110" x2="336" y2="130" stroke="#0d1018" stroke-width="5" stroke-linecap="round" opacity=".85"/>
+      <line x1="358" y1="108" x2="356" y2="130" stroke="#0d1018" stroke-width="5" stroke-linecap="round" opacity=".85"/>
+      <line x1="370" y1="106" x2="372" y2="130" stroke="#0d1018" stroke-width="5" stroke-linecap="round" opacity=".85"/>
+      <!-- Cold eye glow -->
+      <circle cx="382" cy="74" r="2" fill="#185FA5" opacity=".6" class="pg"/>
+      <!-- Shadow -->
+      <ellipse cx="340" cy="134" rx="50" ry="8" fill="#050608" opacity=".6"/>
+    </svg>
+    <div class="trow" onclick="tog(2)">
+      <span class="tnum">2</span>
+      <div class="tmid"><p class="tname">Dogs</p><p class="tdur">17:06</p></div>
+      <i class="ti ti-chevron-down tchev" aria-hidden="true"></i>
+    </div>
+    <div class="body" id="b2"><div class="inner">
+      <div class="tags"><span class="tag">ambition</span><span class="tag">corporate cruelty</span><span class="tag">isolation</span><span class="tag">Orwell</span></div>
+      <p class="slbl"><i class="ti ti-book-2" aria-hidden="true"></i> The story</p>
+      <p class="stxt">The album's centrepiece and one of the most powerful extended pieces in Floyd's catalogue. Based loosely on George Orwell's Animal Farm, the Dogs are ruthless corporate climbers — people who claw their way to the top by treating everyone around them as a means to an end, and then find themselves entirely alone at the summit. It's a portrait of what ambition costs.</p>
+      <p class="slbl"><i class="ti ti-music" aria-hidden="true"></i> The music</p>
+      <p class="stxt">At over seventeen minutes, the track shifts through several movements — a fierce opening riff, a chilling middle section of vocoder effects that make Waters sound barely human, and Gilmour's guitar passages that are by turns menacing and mournful. The vocoder sequence is one of the most unsettling sounds on any Pink Floyd record.</p>
+      <p class="slbl"><i class="ti ti-sparkles" aria-hidden="true"></i> Something to know</p>
+      <p class="stxt">The dogs of the title are not villains to be despised — they're victims of a system that rewards cruelty. Waters makes you understand how someone becomes this way, and the song's final movement depicts a man dying alone, having sacrificed every human connection to get where he got. The tragedy is that he achieved everything he wanted.</p>
+    </div></div>
+  </div>
+
+  <!-- 3 Pigs (Three Different Ones) -->
+  <div class="card" id="c3">
+    <svg class="scene" viewBox="0 0 680 155" xmlns="http://www.w3.org/2000/svg" onclick="tog(3)">
+      <rect width="680" height="155" fill="#0a0808"/>
+      <!-- Battersea Power Station silhouette -->
+      <!-- Main building body -->
+      <rect x="160" y="72" width="360" height="68" fill="#141010" opacity=".9" rx="1"/>
+      <!-- Four chimneys -->
+      <rect x="178" y="28" width="22" height="50" fill="#111010" opacity=".9" rx="1"/>
+      <rect x="228" y="38" width="22" height="40" fill="#111010" opacity=".85" rx="1"/>
+      <rect x="430" y="38" width="22" height="40" fill="#111010" opacity=".85" rx="1"/>
+      <rect x="480" y="28" width="22" height="50" fill="#111010" opacity=".9" rx="1"/>
+      <!-- Chimney tops -->
+      <rect x="176" y="24" width="26" height="6" fill="#1a1414" opacity=".8" rx="1"/>
+      <rect x="478" y="24" width="26" height="6" fill="#1a1414" opacity=".8" rx="1"/>
+      <!-- Industrial haze -->
+      <rect x="0" y="0" width="680" height="80" fill="#1a0808" opacity=".08"/>
+      <!-- Three pigs floating at different heights — political authority figures -->
+      <!-- Pig 1 - left, high -->
+      <ellipse cx="155" cy="38" rx="28" ry="16" fill="none" stroke="rgba(255,100,100,.35)" stroke-width=".9" class="pf"/>
+      <ellipse cx="175" cy="36" rx="8"  ry="6"  fill="none" stroke="rgba(255,100,100,.28)" stroke-width=".7" class="pf"/>
+      <ellipse cx="135" cy="39" rx="8"  ry="5"  fill="none" stroke="rgba(255,100,100,.28)" stroke-width=".7" class="pf"/>
+      <circle cx="148" cy="36" r="1.8" fill="rgba(255,100,100,.4)" class="pf"/>
+      <circle cx="162" cy="36" r="1.8" fill="rgba(255,100,100,.4)" class="pf"/>
+      <!-- Pig 2 - centre, mid height -->
+      <ellipse cx="340" cy="22" rx="30" ry="17" fill="none" stroke="rgba(255,120,120,.4)" stroke-width="1" class="pf" style="animation-delay:.8s"/>
+      <ellipse cx="362" cy="20" rx="9"  ry="7"  fill="none" stroke="rgba(255,120,120,.32)" stroke-width=".8" class="pf" style="animation-delay:.8s"/>
+      <ellipse cx="318" cy="23" rx="9"  ry="6"  fill="none" stroke="rgba(255,120,120,.32)" stroke-width=".8" class="pf" style="animation-delay:.8s"/>
+      <circle cx="332" cy="20" r="2"   fill="rgba(255,120,120,.45)" class="pf" style="animation-delay:.8s"/>
+      <circle cx="348" cy="20" r="2"   fill="rgba(255,120,120,.45)" class="pf" style="animation-delay:.8s"/>
+      <!-- Pig 3 - right, low -->
+      <ellipse cx="525" cy="45" rx="26" ry="15" fill="none" stroke="rgba(255,100,100,.3)" stroke-width=".8" class="pf" style="animation-delay:1.6s"/>
+      <ellipse cx="544" cy="43" rx="7"  ry="6"  fill="none" stroke="rgba(255,100,100,.24)" stroke-width=".7" class="pf" style="animation-delay:1.6s"/>
+      <ellipse cx="506" cy="46" rx="7"  ry="5"  fill="none" stroke="rgba(255,100,100,.24)" stroke-width=".7" class="pf" style="animation-delay:1.6s"/>
+      <circle cx="518" cy="43" r="1.6" fill="rgba(255,100,100,.35)" class="pf" style="animation-delay:1.6s"/>
+      <circle cx="532" cy="43" r="1.6" fill="rgba(255,100,100,.35)" class="pf" style="animation-delay:1.6s"/>
+      <!-- Ground / Thames -->
+      <rect x="0" y="140" width="680" height="15" fill="#0c1018" opacity=".7"/>
+      <line x1="0" y1="140" x2="680" y2="140" stroke="#185FA5" stroke-width=".5" opacity=".3"/>
+    </svg>
+    <div class="trow" onclick="tog(3)">
+      <span class="tnum">3</span>
+      <div class="tmid"><p class="tname">Pigs (Three Different Ones)</p><p class="tdur">11:28</p></div>
+      <i class="ti ti-chevron-down tchev" aria-hidden="true"></i>
+    </div>
+    <div class="body" id="b3"><div class="inner">
+      <div class="tags"><span class="tag">political satire</span><span class="tag">hypocrisy</span><span class="tag">authority</span><span class="tag">Thatcher</span></div>
+      <p class="slbl"><i class="ti ti-book-2" aria-hidden="true"></i> The story</p>
+      <p class="stxt">The most overtly political song on the album — a vicious satire of those who hold power and abuse it. The three different pigs are corrupt authority figures: self-righteous, hypocritical, bloated with entitlement. One is widely understood to be a direct attack on Mary Whitehouse, the prominent moral campaigner of the era, though the type is universal.</p>
+      <p class="slbl"><i class="ti ti-music" aria-hidden="true"></i> The music</p>
+      <p class="stxt">The talk box guitar — a technique Gilmour uses to make his guitar seem to speak — gives the song its most distinctive sonic moment. The instrument grunts and squeals in a way that is genuinely pig-like, turning the metaphor into sound. It is one of the most inventive pieces of guitar playing on any Floyd record.</p>
+      <p class="slbl"><i class="ti ti-sparkles" aria-hidden="true"></i> Something to know</p>
+      <p class="stxt">The album's iconic cover features Battersea Power Station — visible from the studio where they recorded — with a giant inflatable pink pig flying between the chimneys. During the photoshoot the pig broke free from its moorings and drifted into the Heathrow flight path, forcing the airport to alert pilots. The pig eventually landed in Kent.</p>
+    </div></div>
+  </div>
+
+  <!-- 4 Sheep -->
+  <div class="card" id="c4">
+    <svg class="scene" viewBox="0 0 680 155" xmlns="http://www.w3.org/2000/svg" onclick="tog(4)">
+      <rect width="680" height="155" fill="#080a08"/>
+      <!-- Rolling field — the sheep's landscape -->
+      <rect x="0" y="100" width="680" height="55" fill="#0a1008" opacity=".9"/>
+      <path d="M0,100 Q170,92 340,96 Q510,100 680,94" fill="#0d130a" opacity=".8"/>
+      <line x1="0" y1="100" x2="680" y2="100" stroke="#1D9E75" stroke-width=".4" opacity=".3"/>
+      <!-- Flock of sheep — all moving in the same direction, left to right -->
+      <!-- Each sheep: fluffy ellipse body + small head -->
+      <ellipse cx="68"  cy="94" rx="20" ry="13" fill="#1a1e18" opacity=".85"/>
+      <circle  cx="85"  cy="88" r="8"   fill="#1c201a" opacity=".85"/>
+      <ellipse cx="148" cy="96" rx="22" ry="14" fill="#1a1e18" opacity=".85"/>
+      <circle  cx="166" cy="89" r="9"   fill="#1c201a" opacity=".85"/>
+      <ellipse cx="235" cy="93" rx="20" ry="13" fill="#1a1e18" opacity=".85"/>
+      <circle  cx="252" cy="87" r="8"   fill="#1c201a" opacity=".85"/>
+      <ellipse cx="318" cy="95" rx="22" ry="14" fill="#1a1e18" opacity=".85"/>
+      <circle  cx="336" cy="88" r="9"   fill="#1c201a" opacity=".85"/>
+      <ellipse cx="402" cy="94" rx="20" ry="13" fill="#1a1e18" opacity=".85"/>
+      <circle  cx="419" cy="87" r="8"   fill="#1c201a" opacity=".85"/>
+      <ellipse cx="485" cy="96" rx="22" ry="14" fill="#1a1e18" opacity=".85"/>
+      <circle  cx="503" cy="89" r="9"   fill="#1c201a" opacity=".85"/>
+      <ellipse cx="568" cy="94" rx="20" ry="13" fill="#1a1e18" opacity=".85"/>
+      <circle  cx="585" cy="87" r="8"   fill="#1c201a" opacity=".85"/>
+      <!-- All sheep eyes looking the same direction — following -->
+      <circle cx="90"  cy="87" r="1.5" fill="rgba(255,255,255,.3)"/>
+      <circle cx="171" cy="88" r="1.5" fill="rgba(255,255,255,.3)"/>
+      <circle cx="257" cy="86" r="1.5" fill="rgba(255,255,255,.3)"/>
+      <circle cx="341" cy="87" r="1.5" fill="rgba(255,255,255,.3)"/>
+      <circle cx="424" cy="86" r="1.5" fill="rgba(255,255,255,.3)"/>
+      <circle cx="508" cy="88" r="1.5" fill="rgba(255,255,255,.3)"/>
+      <circle cx="590" cy="86" r="1.5" fill="rgba(255,255,255,.3)"/>
+      <!-- Overcast sky — no colour, just grey oppression -->
+      <rect x="0" y="0" width="680" height="80" fill="#090b09" opacity=".6"/>
+      <!-- Low cloud line -->
+      <path d="M0,55 Q80,48 160,54 Q240,60 320,52 Q400,44 480,52 Q560,60 680,50" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>
+      <path d="M0,65 Q100,58 200,64 Q300,70 400,62 Q500,54 600,62 Q640,65 680,60" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+    </svg>
+    <div class="trow" onclick="tog(4)">
+      <span class="tnum">4</span>
+      <div class="tmid"><p class="tname">Sheep</p><p class="tdur">10:21</p></div>
+      <i class="ti ti-chevron-down tchev" aria-hidden="true"></i>
+    </div>
+    <div class="body" id="b4"><div class="inner">
+      <div class="tags"><span class="tag">conformity</span><span class="tag">the masses</span><span class="tag">revolution</span><span class="tag">passivity</span></div>
+      <p class="slbl"><i class="ti ti-book-2" aria-hidden="true"></i> The story</p>
+      <p class="stxt">The masses — people who follow without thinking, do what they're told, and live lives of comfortable, unexamined compliance. But the song is more complex than simple contempt: Waters eventually imagines the sheep rising up, briefly, before being slaughtered and returning to their routine. The revolution fails not from lack of anger but from lack of imagination.</p>
+      <p class="slbl"><i class="ti ti-music" aria-hidden="true"></i> The music</p>
+      <p class="stxt">The track features a remarkable middle section where Waters delivers a darkly comic rewrite of the 23rd Psalm — "The Lord is my shepherd, I shall not want" — filtered through a vocoder, as if the sheep's prayer is also being mechanised. It is one of the most quietly savage moments in their catalogue.</p>
+      <p class="slbl"><i class="ti ti-sparkles" aria-hidden="true"></i> Something to know</p>
+      <p class="stxt">Waters has said the sheep are not stupid — they are simply afraid. The album's three central figures (dogs, pigs, sheep) are not a simple moral hierarchy. They are all trapped: the dogs by their ambition, the pigs by their corruption, the sheep by their fear. The only escape is the love song at either end — which is why those two minutes matter so much.</p>
+    </div></div>
+  </div>
+
+  <!-- 5 Pigs on the Wing 2 -->
+  <div class="card" id="c5">
+    <svg class="scene" viewBox="0 0 680 155" xmlns="http://www.w3.org/2000/svg" onclick="tog(5)">
+      <rect width="680" height="155" fill="#0a0c08"/>
+      <!-- Dawn is breaking — warmer than part 1, the world slightly changed -->
+      <rect x="0" y="0" width="680" height="155" fill="#1D9E75" opacity=".02"/>
+      <!-- Horizon glow — slightly warmer, a faint hope -->
+      <rect x="0" y="90" width="680" height="65" fill="#0d1008" opacity=".9"/>
+      <line x1="0" y1="90" x2="680" y2="90" stroke="#3B6D11" stroke-width=".5" opacity=".35"/>
+      <rect x="0" y="80" width="680" height="14" fill="#BA7517" opacity=".04" class="pg2"/>
+      <!-- Sun just below horizon — hope not yet arrived but present -->
+      <circle cx="340" cy="90" r="32" fill="#EF9F27" opacity=".04" class="pg"/>
+      <circle cx="340" cy="90" r="20" fill="#EF9F27" opacity=".05" class="pg"/>
+      <!-- Two figures again — but closer together this time -->
+      <rect x="312" y="78" width="6" height="18" fill="#3a4a30" opacity=".65" rx="1"/>
+      <circle cx="315" cy="75" r="4" fill="#3a4a30" opacity=".65"/>
+      <rect x="362" y="78" width="6" height="18" fill="#3a4a30" opacity=".65" rx="1"/>
+      <circle cx="365" cy="75" r="4" fill="#3a4a30" opacity=".65"/>
+      <!-- A line connecting them — they've found each other -->
+      <line x1="318" y1="84" x2="362" y2="84" stroke="#3B6D11" stroke-width=".6" opacity=".4" stroke-dasharray="2 4"/>
+      <!-- Stars fading — day arriving -->
+      <circle cx="80"  cy="22" r=".5" fill="#fff" opacity=".2"/>
+      <circle cx="200" cy="14" r=".4" fill="#fff" opacity=".18"/>
+      <circle cx="500" cy="18" r=".5" fill="#fff" opacity=".18"/>
+      <circle cx="600" cy="30" r=".4" fill="#fff" opacity=".16"/>
+      <!-- Birds in sky — freedom, release -->
+      <path d="M120,45 Q126,40 132,45" fill="none" stroke="rgba(255,255,255,.25)" stroke-width=".8"/>
+      <path d="M160,38 Q166,33 172,38" fill="none" stroke="rgba(255,255,255,.2)"  stroke-width=".7"/>
+      <path d="M450,42 Q456,37 462,42" fill="none" stroke="rgba(255,255,255,.22)" stroke-width=".8"/>
+      <path d="M490,32 Q496,27 502,32" fill="none" stroke="rgba(255,255,255,.18)" stroke-width=".7"/>
+    </svg>
+    <div class="trow" onclick="tog(5)">
+      <span class="tnum">5</span>
+      <div class="tmid"><p class="tname">Pigs on the Wing (Part 2)</p><p class="tdur">1:26</p></div>
+      <i class="ti ti-chevron-down tchev" aria-hidden="true"></i>
+    </div>
+    <div class="body" id="b5"><div class="inner">
+      <div class="tags"><span class="tag">love</span><span class="tag">resolution</span><span class="tag">acoustic</span><span class="tag">epilogue</span></div>
+      <p class="slbl"><i class="ti ti-book-2" aria-hidden="true"></i> The story</p>
+      <p class="stxt">The album closes exactly as it opened — with a short acoustic love song. After everything you've heard, Waters returns to his wife and says: you kept me safe from all of that. The pigs on the wing are, in the end, a threat that love can neutralise. It is a tiny epilogue, but its placement makes it one of the most affecting moments in the album's architecture.</p>
+      <p class="slbl"><i class="ti ti-music" aria-hidden="true"></i> The music</p>
+      <p class="stxt">Similar in feel to Part 1 but with a subtle warmth that wasn't quite there at the opening — as if the journey through the album has somehow made the love more earned. The same guitar, the same voice. But you hear it differently for having listened to everything in between.</p>
+      <p class="slbl"><i class="ti ti-sparkles" aria-hidden="true"></i> Something to know</p>
+      <p class="stxt">On the original vinyl release, the album was split across two sides — Part 1 ended Side A, and Part 2 opened Side B. A member of the band's crew, Snowy White, played an additional guitar solo on Part 2 that was later removed from CD releases but has been reinstated on some reissues. The two halves were always designed to be heard as one continuous statement.</p>
+    </div></div>
+  </div>
+
+</div>
+
+<script>
+  function tog(n) {
+    const card = document.getElementById('c' + n);
+    const body = document.getElementById('b' + n);
+    const inner = body.querySelector('.inner');
+    const isOpen = card.classList.contains('open');
+    [1,2,3,4,5].forEach(i => {
+      document.getElementById('c' + i).classList.remove('open');
+      document.getElementById('b' + i).style.maxHeight = '0';
+    });
+    if (!isOpen) {
+      card.classList.add('open');
+      body.style.maxHeight = (inner.scrollHeight + 40) + 'px';
+    }
+  }
+</script>
+</body>
+</html>
