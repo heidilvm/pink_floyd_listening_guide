@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meddle — Pink Floyd Listening Guide</title>
+  <link rel="stylesheet" href="https://unpkg.com/@fontsource/playfair-display@5.0.8/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <style>
+    :root { --font-sans: system-ui, -apple-system, sans-serif; --font-serif: 'Playfair Display', Georgia, serif; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #04040a; min-height: 100vh; display: flex; align-items: flex-start; justify-content: center; padding: 2rem 1rem; font-family: var(--font-sans); }
+    .guide { width: 100%; max-width: 680px; background: #08080e; border-radius: 12px; overflow: hidden; border: 0.5px solid rgba(255,255,255,0.1); }
+    .guide-header { padding: 24px 20px 18px; border-bottom: 0.5px solid rgba(255,255,255,0.08); margin-bottom: 6px; }
+    .guide-eyebrow { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.28); margin-bottom: 8px; }
+    .guide-title { font-family: var(--font-serif); font-size: 26px; font-weight: 400; font-style: italic; color: #ede8e0; line-height: 1.2; margin-bottom: 5px; }
+    .guide-sub { font-size: 12px; color: rgba(255,255,255,.28); }
+    .card { background: #0e0e16; border-top: 0.5px solid rgba(255,255,255,.1); overflow: hidden; margin-bottom: 1px; }
+    .scene { width: 100%; display: block; cursor: pointer; }
+    .trow { display: flex; align-items: center; gap: 12px; padding: 13px 18px; cursor: pointer; border-top: 0.5px solid rgba(255,255,255,.08); background: #0e0e16; transition: background 0.2s; }
+    .trow:hover { background: #131320; }
+    .tnum { font-size: 11px; color: rgba(255,255,255,.3); min-width: 15px; }
+    .tmid { flex: 1; min-width: 0; }
+    .tname { font-family: var(--font-serif); font-size: 14px; font-weight: 400; color: rgba(255,255,255,.9); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin: 0; }
+    .tdur { font-size: 11px; color: rgba(255,255,255,.3); margin-top: 2px; }
+    .tchev { font-size: 15px; color: rgba(255,255,255,.35); transition: transform .32s ease; flex-shrink: 0; }
+    .card.open .tchev { transform: rotate(180deg); }
+    .body { max-height: 0; overflow: hidden; transition: max-height .48s cubic-bezier(.4,0,.2,1); }
+    .inner { padding: 18px 18px 24px; border-top: 0.5px solid rgba(255,255,255,.08); }
+    .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 18px; }
+    .tag { font-size: 10px; padding: 3px 10px; border-radius: 100px; border: 0.5px solid rgba(255,255,255,.12); color: rgba(255,255,255,.38); text-transform: uppercase; letter-spacing: .07em; }
+    .slbl { font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.3); margin: 16px 0 6px; display: flex; align-items: center; gap: 4px; }
+    .slbl:first-of-type { margin-top: 0; }
+    .slbl i { font-size: 12px; }
+    .stxt { font-size: 13.5px; line-height: 1.74; color: rgba(255,255,255,.62); }
+    @keyframes pulse  { 0%,100%{opacity:.3}  50%{opacity:.85} }
+    @keyframes pulse2 { 0%,100%{opacity:.2}  50%{opacity:.65} }
+    @keyframes ripple { 0%{r:4;opacity:.7} 100%{r:60;opacity:0} }
+    @keyframes drift  { 0%,100%{opacity:.35} 50%{opacity:.75} }
+    @keyframes spin   { from{transform-origin:340px 78px;transform:rotate(0deg)} to{transform-origin:340px 78px;transform:rotate(360deg)} }
+    .pg  { animation: pulse  4s ease-in-out infinite; }
+    .pg2 { animation: pulse2 7s ease-in-out 2s infinite; }
+    .pd  { animation: drift  5s ease-in-out 1s infinite; }
+    @media (max-width: 480px) { body { padding: 0; } .guide { border-radius: 0; border: none; } .guide-title { font-size: 22px; } }
+  </style>
+</head>
+<body>
+<div class="guide">
+
+  <div class="guide-header">
+    <p class="guide-eyebrow">Pink Floyd · 1971 · A listening guide</p>
+    <p class="guide-title">Meddle</p>
+    <p class="guide-sub">Tap each track as it begins to play</p>
+  </div>
+
+  <!-- 1 One of These Days -->
+  <div class="card" id="c1">
+    <svg class="scene" viewBox="0 0 680 155" xmlns="http://www.w3.org/2000/svg" onclick="tog(1)">
+      <rect width="680" height="155" fill="#06080e"/>
+      <!-- Storm sky — dark, churning, oppressive -->
+      <rect x="0" y="0" width="680" height="100" fill="#070a10" opacity=".9"/>
+      <!-- Rolling storm clouds -->
+      <path d="M0,40 Q60,30 120,38 Q180,46 240,34 Q300,22 360,36 Q420,50 480,38 Q540,26 600,36 Q640,42 680,34" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="8"/>
+      <path d="M0,58 Q80,48 160,56 Q240,64 320,50 Q400,36 480,50 Q560,64 640,52 Q660,50 680,52" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="10"/>
+      <path d="M0,72 Q100,62 200,70 Q300,78 400,64 Q500,50 600,64 Q640,70 680,62" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="8"/>
+      <!-- Ground - flat, exposed -->
+      <rect x="0" y="100" width="680" height="55" fill="#08080a" opacity=".95"/>
+      <line x1="0" y1="100" x2="680" y2="100" stroke="rgba(255,255,255,0.08)" stroke-width=".5"/>
+      <!-- Lightning bolt — the violence of the track's opening -->
+      <polyline points="355,18 340,55 352,55 336,95" fill="none" stroke="#B5D4F4" stroke-width="1.2" opacity=".5" class="pg"/>
+      <polyline points="355,18 340,55 352,55 336,95" fill="none" stroke="#fff" stroke-width="3" opacity=".08" class="pg"/>
+      <!-- Wind lines across the ground -->
+      <line x1="0"   y1="118" x2="200" y2="116" stroke="rgba(255,255,255,0.06)" stroke-width=".6"/>
+      <line x1="100" y1="128" x2="380" y2="125" stroke="rgba(255,255,255,0.05)" stroke-width=".5"/>
+      <line x1="300" y1="138" x2="680" y2="134" stroke="rgba(255,255,255,0.06)" stroke-width=".6"/>
+      <line x1="400" y1="112" x2="680" y2="110" stroke="rgba(255,255,255,0.04)" stroke-width=".5"/>
+    </svg>
+    <div class="trow" onclick="tog(1)">
+      <span class="tnum">1</span>
+      <div class="tmid"><p class="tname">One of These Days</p><p class="tdur">5:57</p></div>
+      <i class="ti ti-chevron-down tchev" aria-hidden="true"></i>
+    </div>
+    <div class="body" id="b1"><div class="inner">
+      <div class="tags"><span class="tag">aggression</span><span class="tag">bass-driven</span><span class="tag">menace</span><span class="tag">opening</span></div>
+      <p class="slbl"><i class="ti ti-book-2" aria-hidden="true"></i> The story</p>
+      <p class="stxt">The album crashes open with one of the most viscerally exciting things Pink Floyd ever recorded — two bass guitars in stereo, panned left and right, running at each other like a storm front. There are almost no lyrics, just a single spoken line delivered through a vocoder: "One of these days I'm going to cut you into little pieces." The voice belongs to Nick Mason — his only lead vocal on any Pink Floyd record.</p>
+      <p class="slbl"><i class="ti ti-music" aria-hidden="true"></i> The music</p>
+      <p class="stxt">The dual bass opening — Waters on one side, Gilmour on the other — creates an unnerving stereo effect that rewards headphones enormously. Listen for the way the two lines interlock and occasionally clash. The track builds through a series of accelerating sections to a release that feels genuinely cathartic.</p>
+      <p class="slbl"><i class="ti ti-sparkles" aria-hidden="true"></i> Something to know</p>
+      <p class="stxt">The spoken line is a reference to a BBC radio comedy called The Goon Show. The Goons were a major influence on early Pink Floyd — the band's name itself is partly derived from two Goon Show characters, Pink Anderson and Floyd Council. That single threatening line is the only moment of aggression on the whole album — everything else is patient and expansive.</p>
+    </div></div>
+  </div>
+
+  <!-- 2 A Pillow of Winds -->
+  <div class="card" id="c2">
+    <svg class="scene" viewBox="0 0 680 155" xmlns="http://www.w3.org/2000/svg" onclick="tog(2)">
+      <rect width="680" height="155" fill="#0a0d08"/>
+      <!-- Pre-dawn pastoral — soft greens, stillness -->
+      <rect x="0" y="80" width="680" height="75" fill="#0c1009" opacity=".9"/>
+      <line x1="0" y1="80" x2="680" y2="80" stroke="#3B6D11" stroke-width=".4" opacity=".3"/>
+      <!-- Soft sky gradient layers -->
+      <rect x="0" y="0"  width="680" height="40" fill="#0a0f0c" opacity=".9"/>
+      <rect x="0" y="40" width="680" height="40" fill="#090d0a" opacity=".9"/>
+      <!-- Gentle moon low in sky -->
+      <circle cx="120" cy="35" r="22" fill="none" stroke="#185FA5" stroke-width=".5" opacity=".3"/>
+      <circle cx="120" cy="35" r="15" fill="#06090f" opacity=".9"/>
+      <circle cx="120" cy="35" r="10" fill="#07101e" opacity=".7" class="pg2"/>
+      <!-- Sleeping figure suggested — a pillow, a bed, rest -->
+      <rect x="230" y="88" width="220" height="35" fill="#111810" opacity=".75" rx="8"/>
+      <ellipse cx="260" cy="86" rx="22" ry="15" fill="#151e12" opacity=".7"/>
+      <!-- Stars — peaceful, unhurried -->
+      <circle cx="55"  cy="18" r=".7" fill="#fff" opacity=".45"/>
+      <circle cx="155" cy="12" r=".5" fill="#fff" opacity=".38"/>
+      <circle cx="260" cy="24" r=".6" fill="#fff" opacity=".4"/>
+      <circle cx="420" cy="15" r=".7" fill="#fff" opacity=".42"/>
+      <circle cx="540" cy="28" r=".5" fill="#fff" opacity=".35"/>
+      <circle cx="625" cy="10" r=".8" fill="#fff" opacity=".4"/>
+      <circle cx="340" cy="20" r=".6" fill="#fff" opacity=".38"/>
+      <!-- Soft breath lines — the rise and fall of sleep -->
+      <path d="M0,95 Q170,90 340,93 Q510,96 680,91" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1.5"/>
+      <path d="M0,105 Q170,100 340,103 Q510,106 680,101" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1.5"/>
+    </svg>
+    <div class="trow" onclick="tog(2)">
+      <span class="tnum">2</span>
+      <div class="tmid"><p class="tname">A Pillow of Winds</p><p class="tdur">5:11</p></div>
+      <i class="ti ti-chevron-down tchev" aria-hidden="true"></i>
+    </div>
+    <div class="body" id="b2"><div class="inner">
+      <div class="tags"><span class="tag">acoustic</span><span class="tag">pastoral</span><span class="tag">sleep</span><span class="tag">tenderness</span></div>
+      <p class="slbl"><i class="ti ti-book-2" aria-hidden="true"></i> The story</p>
+      <p class="stxt">After the violence of the opening, the album settles into something almost unbearably gentle. A soft acoustic ballad about the peace of sleeping beside someone you love — the pillow of winds is the feeling of complete safety, warm and still, with the world outside held at bay. It is one of the most quietly beautiful things Pink Floyd ever recorded.</p>
+      <p class="slbl"><i class="ti ti-music" aria-hidden="true"></i> The music</p>
+      <p class="stxt">Gilmour's voice here has a hushed, half-awake quality that perfectly suits the subject. The acoustic guitar barely disturbs the air. Richard Wright's organ drifts in like first light through a curtain — present but not insistent. The whole arrangement feels like it is trying not to wake anyone up.</p>
+      <p class="slbl"><i class="ti ti-sparkles" aria-hidden="true"></i> Something to know</p>
+      <p class="stxt">The contrast between this track and the one before it is deliberate and total. Floyd understood that albums were not collections of similar songs — they were journeys with varying emotional weather. Going from "One of These Days" to "A Pillow of Winds" is like stepping out of a thunderstorm into a warm room. Both require each other to work fully.</p>
+    </div></div>
+  </div>
+
+  <!-- 3 Fearless -->
+  <div class="card" id="c3">
+    <svg class="scene" viewBox="0 0 680 155" xmlns="http://www.w3.org/2000/svg" onclick="tog(3)">
+      <rect width="680" height="155" fill="#090b08"/>
+      <!-- Hill — a lone figure climbing -->
+      <!-- Ground base -->
+      <rect x="0" y="120" width="680" height="35" fill="#0c1008" opacity=".9"/>
+      <!-- The hill itself — a long rising curve -->
+      <path d="M0,120 Q200,118 340,55 Q480,118 680,120 Z" fill="#0f1408" opacity=".85"/>
+      <path d="M0,120 Q200,118 340,55 Q480,118 680,120" fill="none" stroke="#3B6D11" stroke-width=".6" opacity=".4"/>
+      <!-- Summit glow — the goal -->
+      <circle cx="340" cy="55" r="18" fill="#3B6D11" opacity=".06" class="pg2"/>
+      <circle cx="340" cy="55" r="8"  fill="#3B6D11" opacity=".08" class="pg"/>
+      <!-- Lone figure ascending — small, determined, about two thirds up -->
+      <rect x="290" y="80" width="5" height="14" fill="#1D9E75" opacity=".5" rx="1"/>
+      <circle cx="292" cy="77" r="3.5" fill="#1D9E75" opacity=".5"/>
+      <!-- Staff/walking stick -->
+      <line x1="296" y1="78" x2="302" y2="92" stroke="#1D9E75" stroke-width=".8" opacity=".4"/>
+      <!-- Sky — wide open, blue-grey -->
+      <rect x="0" y="0" width="680" height="80" fill="#07090e" opacity=".7"/>
+      <!-- Clouds far away, small — the world below receding -->
+      <ellipse cx="120" cy="35" rx="55" ry="12" fill="#0d0f12" opacity=".6"/>
+      <ellipse cx="90"  cy="30" rx="35" ry="9"  fill="#0e1014" opacity=".5"/>
+      <ellipse cx="540" cy="45" rx="60" ry="10" fill="#0d0f12" opacity=".55"/>
+      <ellipse cx="570" cy="40" rx="40" ry="8"  fill="#0e1014" opacity=".45"/>
+      <!-- Stars still just visible at top of sky -->
+      <circle cx="340" cy="12" r=".6" fill="#fff" opacity=".3"/>
+      <circle cx="460" cy="8"  r=".5" fill="#fff" opacity=".25"/>
+      <circle cx="220" cy="16" r=".5" fill="#fff" opacity=".22"/>
+    </svg>
+    <div class="trow" onclick="tog(3)">
+      <span class="tnum">3</span>
+      <div class="tmid"><p class="tname">Fearless</p><p class="tdur">6:08</p></div>
+      <i class="ti ti-chevron-down tchev" aria-hidden="true"></i>
+    </div>
+    <div class="body" id="b3"><div class="inner">
+      <div class="tags"><span class="tag">defiance</span><span class="tag">folk</span><span class="tag">self-belief</span><span class="tag">Liverpool</span></div>
+      <p class="slbl"><i class="ti ti-book-2" aria-hidden="true"></i> The story</p>
+      <p class="stxt">A song about climbing — literally and figuratively. About doing the thing that frightens you, regardless of what others say. The imagery is of a man ascending a hill while the crowd below mocks him. He goes anyway. By the end he's at the top, and the crowd has gone home. There is something genuinely moving in its quiet stubbornness.</p>
+      <p class="slbl"><i class="ti ti-music" aria-hidden="true"></i> The music</p>
+      <p class="stxt">The song fades out with the sound of Liverpool Football Club's Anfield crowd singing "You'll Never Walk Alone" — a recording of actual supporters captured at a match. It is one of the most unexpected endings in the Floyd catalogue: a folk rock song dissolving into a football terrace in full voice, thousands of people singing about not being alone. It works perfectly.</p>
+      <p class="slbl"><i class="ti ti-sparkles" aria-hidden="true"></i> Something to know</p>
+      <p class="stxt">Gilmour has described the song as being about someone who simply decides not to be afraid — which sounds obvious, but the music makes it feel like a genuine act of will. The crowd at Anfield singing at the end is not ironic. Pink Floyd, at this point in their career, were sincere in ways that would become harder to sustain as they got bigger and more famous.</p>
+    </div></div>
+  </div>
+
+  <!-- 4 San Tropez -->
+  <div class="card" id="c4">
+    <svg class="scene" viewBox="0 0 680 155" xmlns="http://www.w3.org/2000/svg" onclick="tog(4)">
+      <rect width="680" height="155" fill="#0a0907"/>
+      <!-- Mediterranean sea and sky — warm, golden, lounging -->
+      <!-- Sea -->
+      <rect x="0" y="90" width="680" height="65" fill="#091018" opacity=".9"/>
+      <line x1="0" y1="90" x2="680" y2="90" stroke="#185FA5" stroke-width=".6" opacity=".4"/>
+      <!-- Sea shimmer lines -->
+      <line x1="40"  y1="100" x2="120" y2="98"  stroke="#378ADD" stroke-width=".4" opacity=".3"/>
+      <line x1="200" y1="108" x2="310" y2="106" stroke="#378ADD" stroke-width=".4" opacity=".28"/>
+      <line x1="380" y1="102" x2="460" y2="100" stroke="#378ADD" stroke-width=".4" opacity=".3"/>
+      <line x1="520" y1="112" x2="640" y2="110" stroke="#378ADD" stroke-width=".4" opacity=".26"/>
+      <!-- Sky — warm golden haze of afternoon -->
+      <rect x="0" y="0" width="680" height="90" fill="#0e0c06" opacity=".9"/>
+      <rect x="0" y="60" width="680" height="32" fill="#BA7517" opacity=".04" class="pg2"/>
+      <!-- Sun — lazy, high, warm -->
+      <circle cx="480" cy="36" r="30" fill="#EF9F27" opacity=".07" class="pg2"/>
+      <circle cx="480" cy="36" r="18" fill="#EF9F27" opacity=".1"  class="pg"/>
+      <circle cx="480" cy="36" r="10" fill="#FAC775" opacity=".15" class="pg"/>
+      <!-- Yacht silhouette on horizon -->
+      <line x1="280" y1="90" x2="280" y2="58" stroke="#131008" stroke-width="1.2" opacity=".85"/>
+      <path d="M280,60 L310,88 L250,88 Z" fill="#0e0c06" opacity=".85"/>
+      <!-- Second smaller yacht -->
+      <line x1="420" y1="90" x2="420" y2="68" stroke="#131008" stroke-width=".9" opacity=".7"/>
+      <path d="M420,70 L440,88 L400,88 Z" fill="#0e0c06" opacity=".7"/>
+      <!-- Warm haze at horizon -->
+      <rect x="0" y="84" width="680" height="10" fill="#BA7517" opacity=".03"/>
+    </svg>
+    <div class="trow" onclick="tog(4)">
+      <span class="tnum">4</span>
+      <div class="tmid"><p class="tname">San Tropez</p><p class="tdur">3:43</p></div>
+      <i class="ti ti-chevron-down tchev" aria-hidden="true"></i>
+    </div>
+    <div class="body" id="b4"><div class="inner">
+      <div class="tags"><span class="tag">playful</span><span class="tag">jazz</span><span class="tag">holiday</span><span class="tag">Roger Waters</span></div>
+      <p class="slbl"><i class="ti ti-book-2" aria-hidden="true"></i> The story</p>
+      <p class="stxt">The album's most unexpected track — a breezy, almost jazzy little number about lounging in the South of France. Written by Roger Waters, it has none of his usual darkness. It is simply charming: a man enjoying himself by the sea, waiting for his lover to arrive, everything warm and unhurried. It is proof that Waters could be light when he chose to be.</p>
+      <p class="slbl"><i class="ti ti-music" aria-hidden="true"></i> The music</p>
+      <p class="stxt">The piano from Richard Wright is genuinely playful — the whole band sounds relaxed in a way they rarely allowed themselves. The arrangement has a lounge-jazz feel that sits oddly but pleasantly on a Pink Floyd album. It is the sound of a band taking a day off inside their own record.</p>
+      <p class="slbl"><i class="ti ti-sparkles" aria-hidden="true"></i> Something to know</p>
+      <p class="stxt">Waters has said he wrote the song partly as a joke — a deliberate exercise in lightness to prove the point that he could. It appeared on the album without much fanfare and has always been a slightly surprising moment for new listeners. Coming after "Fearless" and before "Seamus", it works as a kind of deep breath — a reminder that the album is not trying to be relentlessly heavy.</p>
+    </div></div>
+  </div>
+
+  <!-- 5 Seamus -->
+  <div class="card" id="c5">
+    <svg class="scene" viewBox="0 0 680 155" xmlns="http://www.w3.org/2000/svg" onclick="tog(5)">
+      <rect width="680" height="155" fill="#090b07"/>
+      <!-- Field, warm summer day, a dog howling at the sun -->
+      <!-- Ground -->
+      <rect x="0" y="105" width="680" height="50" fill="#0d1208" opacity=".9"/>
+      <line x1="0" y1="105" x2="680" y2="105" stroke="#3B6D11" stroke-width=".4" opacity=".35"/>
+      <!-- Grass tufts -->
+      <line x1="80"  y1="105" x2="76"  y2="96"  stroke="#3B6D11" stroke-width=".7" opacity=".35"/>
+      <line x1="84"  y1="105" x2="88"  y2="97"  stroke="#3B6D11" stroke-width=".7" opacity=".35"/>
+      <line x1="200" y1="105" x2="196" y2="96"  stroke="#3B6D11" stroke-width=".7" opacity=".3"/>
+      <line x1="204" y1="105" x2="208" y2="97"  stroke="#3B6D11" stroke-width=".7" opacity=".3"/>
+      <line x1="450" y1="105" x2="446" y2="97"  stroke="#3B6D11" stroke-width=".7" opacity=".32"/>
+      <line x1="454" y1="105" x2="458" y2="96"  stroke="#3B6D11" stroke-width=".7" opacity=".32"/>
+      <line x1="580" y1="105" x2="576" y2="96"  stroke="#3B6D11" stroke-width=".7" opacity=".3"/>
+      <!-- Dog silhouette — head tilted up, howling -->
+      <!-- Body -->
+      <ellipse cx="340" cy="96" rx="36" ry="18" fill="#0e1208" opacity=".9"/>
+      <!-- Head tilted up -->
+      <ellipse cx="366" cy="76" rx="16" ry="14" fill="#0e1208" opacity=".9"/>
+      <!-- Snout pointing skyward -->
+      <ellipse cx="374" cy="65" rx="7" ry="10" fill="#0e1208" opacity=".85"/>
+      <!-- Ear -->
+      <polygon points="356,64 348,60 354,74" fill="#0e1208" opacity=".85"/>
+      <!-- Legs -->
+      <line x1="318" y1="112" x2="314" y2="132" stroke="#0e1208" stroke-width="5" stroke-linecap="round" opacity=".9"/>
+      <line x1="334" y1="114" x2="330" y2="132" stroke="#0e1208" stroke-width="5" stroke-linecap="round" opacity=".9"/>
+      <line x1="352" y1="113" x2="350" y2="132" stroke="#0e1208" stroke-width="5" stroke-linecap="round" opacity=".9"/>
+      <line x1="364" y1="110" x2="366" y2="132" stroke="#0e1208" stroke-width="5" stroke-linecap="round" opacity=".9"/>
+      <!-- Tail up — happy -->
+      <path d="M304,96 Q292,82 296,68" stroke="#0e1208" stroke-width="5" fill="none" stroke-linecap="round" opacity=".85"/>
+      <!-- Sound waves from the howl — travelling upward -->
+      <path d="M374,55 Q390,45 386,32" fill="none" stroke="#BA7517" stroke-width=".7" opacity=".35"/>
+      <path d="M374,55 Q400,40 394,22" fill="none" stroke="#BA7517" stroke-width=".6" opacity=".28"/>
+      <path d="M374,55 Q412,36 404,14" fill="none" stroke="#BA7517" stroke-width=".5" opacity=".22"/>
+      <!-- Sun being howled at -->
+      <circle cx="420" cy="28" r="16" fill="#EF9F27" opacity=".1" class="pg"/>
+      <circle cx="420" cy="28" r="9"  fill="#FAC775" opacity=".14" class="pg"/>
+      <!-- Sky -->
+      <rect x="0" y="0" width="680" height="80" fill="#0c0e08" opacity=".6"/>
+    </svg>
+    <div class="trow" onclick="tog(5)">
+      <span class="tnum">5</span>
+      <div class="tmid"><p class="tname">Seamus</p><p class="tdur">2:13</p></div>
+      <i class="ti ti-chevron-down tchev" aria-hidden="true"></i>
+    </div>
+    <div class="body" id="b5"><div class="inner">
+      <div class="tags"><span class="tag">humour</span><span class="tag">blues</span><span class="tag">dog</span><span class="tag">Steve Marriott</span></div>
+      <p class="slbl"><i class="ti ti-book-2" aria-hidden="true"></i> The story</p>
+      <p class="stxt">The album's most gloriously ridiculous track — a blues number where a dog named Seamus howls along to the music. The dog belonged to Steve Marriott of Humble Pie, who was staying nearby. They recorded a track, played it back, the dog responded, and they captured it. It is genuinely funny and not trying to be anything else.</p>
+      <p class="slbl"><i class="ti ti-music" aria-hidden="true"></i> The music</p>
+      <p class="stxt">A loose, warm blues improvisation with Gilmour on slide guitar and Seamus providing the vocal. The dog's contributions are perfectly timed in a way that suggests either remarkable instinct or extraordinary luck. Whatever the explanation, the result is charming. Slide guitar and dog: two instruments in conversation.</p>
+      <p class="slbl"><i class="ti ti-sparkles" aria-hidden="true"></i> Something to know</p>
+      <p class="stxt">Seamus was later renamed "Mademoiselle Nobs" in live performances, and Roger Waters' dog Nobs took over the howling duties on stage during the 1971 tour. Waters has said that of all the strange things Floyd did in those years, bringing a dog onstage to howl the blues was perhaps the strangest — and his personal favourite.</p>
+    </div></div>
+  </div>
+
+  <!-- 6 Echoes -->
+  <div class="card" id="c6">
+    <svg class="scene" viewBox="0 0 680 155" xmlns="http://www.w3.org/2000/svg" onclick="tog(6)">
+      <rect width="680" height="155" fill="#050c14"/>
+      <!-- The ocean — Echoes was inspired partly by looking at the sea -->
+      <!-- Deep water layers -->
+      <rect x="0" y="0"   width="680" height="155" fill="#060e18" opacity=".8"/>
+      <rect x="0" y="40"  width="680" height="115" fill="#051018" opacity=".5"/>
+      <rect x="0" y="80"  width="680" height="75"  fill="#041220" opacity=".4"/>
+      <rect x="0" y="110" width="680" height="45"  fill="#031426" opacity=".3"/>
+      <!-- Light shafts from above — a single ping of sonar in the deep -->
+      <path d="M340,0 L260,155" stroke="#B5D4F4" stroke-width=".4" opacity=".12"/>
+      <path d="M340,0 L290,155" stroke="#B5D4F4" stroke-width=".5" opacity=".16"/>
+      <path d="M340,0 L320,155" stroke="#B5D4F4" stroke-width=".6" opacity=".2"/>
+      <path d="M340,0 L340,155" stroke="#B5D4F4" stroke-width=".7" opacity=".22"/>
+      <path d="M340,0 L360,155" stroke="#B5D4F4" stroke-width=".6" opacity=".2"/>
+      <path d="M340,0 L390,155" stroke="#B5D4F4" stroke-width=".5" opacity=".16"/>
+      <path d="M340,0 L420,155" stroke="#B5D4F4" stroke-width=".4" opacity=".12"/>
+      <!-- Ripple rings from the sonar ping origin -->
+      <circle cx="340" cy="8" r="12"  fill="none" stroke="#378ADD" stroke-width=".6" opacity=".4"/>
+      <circle cx="340" cy="8" r="24"  fill="none" stroke="#185FA5" stroke-width=".5" opacity=".35"/>
+      <circle cx="340" cy="8" r="38"  fill="none" stroke="#0C447C" stroke-width=".5" opacity=".3"/>
+      <circle cx="340" cy="8" r="55"  fill="none" stroke="#0C447C" stroke-width=".4" opacity=".25"/>
+      <circle cx="340" cy="8" r="74"  fill="none" stroke="#042C53" stroke-width=".4" opacity=".2"/>
+      <!-- The source ping — glowing -->
+      <circle cx="340" cy="8" r="5"   fill="#378ADD" opacity=".45" class="pg"/>
+      <circle cx="340" cy="8" r="2.5" fill="#B5D4F4" opacity=".7"  class="pg"/>
+      <!-- Deep sea creatures suggested — faint bioluminescence -->
+      <circle cx="120" cy="110" r="1.5" fill="#5DCAA5" opacity=".3" class="pg2"/>
+      <circle cx="240" cy="130" r="1.2" fill="#5DCAA5" opacity=".25" class="pd"/>
+      <circle cx="480" cy="118" r="1.5" fill="#5DCAA5" opacity=".28" class="pg2"/>
+      <circle cx="560" cy="138" r="1.2" fill="#378ADD" opacity=".22" class="pd"/>
+      <circle cx="80"  cy="140" r="1"   fill="#5DCAA5" opacity=".2"  class="pg"/>
+      <circle cx="600" cy="125" r="1"   fill="#378ADD" opacity=".2"  class="pg2"/>
+    </svg>
+    <div class="trow" onclick="tog(6)">
+      <span class="tnum">6</span>
+      <div class="tmid"><p class="tname">Echoes</p><p class="tdur">23:31</p></div>
+      <i class="ti ti-chevron-down tchev" aria-hidden="true"></i>
+    </div>
+    <div class="body" id="b6"><div class="inner">
+      <div class="tags"><span class="tag">epic</span><span class="tag">humanity</span><span class="tag">ocean</span><span class="tag">23 minutes</span></div>
+      <p class="slbl"><i class="ti ti-book-2" aria-hidden="true"></i> The story</p>
+      <p class="stxt">One of the greatest pieces of music Pink Floyd ever made — and one of the great extended compositions in rock. At 23 minutes, it occupies the entire second side of the original vinyl. It begins with a single sonar ping from Richard Wright's piano and ends somewhere vast, cosmic, and deeply human. The subject is connection: the improbable fact that consciousness exists at all, and that it recognises itself in other people across the distance of the world.</p>
+      <p class="slbl"><i class="ti ti-music" aria-hidden="true"></i> The music</p>
+      <p class="stxt">The track moves through at least six distinct sections: the gentle opening, a full band passage of extraordinary beauty, a disturbing middle section of shrieking feedback and abstract sound — like a nightmare inserted into a dream — and then a long, patient resolution back to the opening theme. The final minutes are among the most transcendent in the band's catalogue. Listen with headphones if you can.</p>
+      <p class="slbl"><i class="ti ti-sparkles" aria-hidden="true"></i> Something to know</p>
+      <p class="stxt">The piece was assembled from over 30 short improvisations the band called "Nothing Parts 1–24." They developed it over months, slowly discovering the shape it wanted to be. Stanley Kubrick famously considered using it in 2001: A Space Odyssey as an alternative to Also Sprach Zarathustra — and when you hear it, that almost-history makes complete sense. It is music about the size of existence.</p>
+    </div></div>
+  </div>
+
+</div>
+
+<script>
+  function tog(n) {
+    const card = document.getElementById('c' + n);
+    const body = document.getElementById('b' + n);
+    const inner = body.querySelector('.inner');
+    const isOpen = card.classList.contains('open');
+    [1,2,3,4,5,6].forEach(i => {
+      document.getElementById('c' + i).classList.remove('open');
+      document.getElementById('b' + i).style.maxHeight = '0';
+    });
+    if (!isOpen) {
+      card.classList.add('open');
+      body.style.maxHeight = (inner.scrollHeight + 40) + 'px';
+    }
+  }
+</script>
+</body>
+</html>
