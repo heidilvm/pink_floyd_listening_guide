@@ -90,7 +90,7 @@
       height: 140px;
       border-radius: 50%;
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,.28);
+      border: 1px solid rgba(255,255,255,.45);
       transition: border-color .35s, box-shadow .35s;
       position: relative;
     }
@@ -99,6 +99,7 @@
       width: 140px;
       height: 140px;
       display: block;
+      filter: brightness(1.6);
     }
 
     .explore-hint {
@@ -152,12 +153,12 @@
     .album.soon .album-meta { color: rgba(255,255,255,.35); }
 
     /* ── Positions (desktop) ────────────────────── */
-    #dsotm    { left: 13%;  top: 42%; }
-    #wywh     { right: 13%; top: 50%; transform: translate(50%,-50%); }
-    #animals  { right: 22%; top: 13%; transform: translate(50%,-50%); }
-    #wall     { left: 44%;  bottom: 9%; transform: translate(-50%,50%); }
-    #meddle   { left: 22%;  top: 11%; }
-    #division { right: 9%;  bottom: 11%; transform: translate(50%,50%); }
+    /* Pentagon layout — 5 albums × 72° apart, r ≈ 30%, centre 50%/50% */
+    #meddle   { left: 50%;  top: 20%; }
+    #dsotm    { left: 79%;  top: 41%; }
+    #wywh     { left: 68%;  top: 74%; }
+    #animals  { left: 32%;  top: 74%; }
+    #division { left: 21%;  top: 41%; }
 
     /* ── Float animations ───────────────────────── */
     @keyframes f1 { 0%,100%{translate:0 0}    50%{translate:0 -15px} }
@@ -170,7 +171,6 @@
     #dsotm    { animation: f1 8s    ease-in-out infinite; }
     #wywh     { animation: f2 9.5s  ease-in-out 1.2s infinite; }
     #animals  { animation: f3 7s    ease-in-out 2.4s infinite; }
-    #wall     { animation: f4 10s   ease-in-out 0.6s infinite; }
     #meddle   { animation: f5 8.5s  ease-in-out 3.2s infinite; }
     #division { animation: f6 9s    ease-in-out 1.8s infinite; }
 
@@ -305,36 +305,6 @@
   <p class="album-name">Animals</p>
   <p class="album-meta">1977 · 5 tracks</p>
 </a>
-
-  <!-- ── THE WALL (coming soon) ── -->
-  <div class="album soon" id="wall">
-    <div class="circle-wrap">
-      <svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
-        <rect width="140" height="140" fill="#0b0907"/>
-        <!-- Brick courses -->
-        <rect x="0"   y="18" width="44"  height="13" fill="#1a1510" opacity=".75" rx="1"/>
-        <rect x="48"  y="18" width="46"  height="13" fill="#1a1510" opacity=".75" rx="1"/>
-        <rect x="98"  y="18" width="42"  height="13" fill="#1a1510" opacity=".75" rx="1"/>
-        <rect x="0"   y="35" width="65"  height="13" fill="#161210" opacity=".75" rx="1"/>
-        <rect x="69"  y="35" width="71"  height="13" fill="#161210" opacity=".75" rx="1"/>
-        <rect x="0"   y="52" width="42"  height="13" fill="#1a1510" opacity=".75" rx="1"/>
-        <rect x="46"  y="52" width="48"  height="13" fill="#1a1510" opacity=".75" rx="1"/>
-        <rect x="98"  y="52" width="42"  height="13" fill="#1a1510" opacity=".75" rx="1"/>
-        <rect x="0"   y="69" width="60"  height="13" fill="#161210" opacity=".75" rx="1"/>
-        <rect x="64"  y="69" width="76"  height="13" fill="#161210" opacity=".75" rx="1"/>
-        <rect x="0"   y="86" width="44"  height="13" fill="#1a1510" opacity=".75" rx="1"/>
-        <rect x="48"  y="86" width="48"  height="13" fill="#1a1510" opacity=".75" rx="1"/>
-        <rect x="100" y="86" width="40"  height="13" fill="#1a1510" opacity=".75" rx="1"/>
-        <rect x="0"   y="103" width="66" height="13" fill="#161210" opacity=".75" rx="1"/>
-        <rect x="70"  y="103" width="70" height="13" fill="#161210" opacity=".75" rx="1"/>
-        <!-- The crack -->
-        <polyline points="70,18 67,35 73,52 68,69 72,86 69,103 71,130" fill="none" stroke="rgba(0,0,0,.9)" stroke-width="2"/>
-        <polyline points="70,18 67,35 73,52 68,69 72,86 69,103 71,130" fill="none" stroke="rgba(255,255,255,.06)" stroke-width=".6"/>
-      </svg>
-    </div>
-    <p class="album-name">The Wall</p>
-    <p class="album-meta">1979 · Coming soon</p>
-  </div>
 
   <!-- ── MEDDLE (live) ── -->
   <a class="album active" id="meddle" href="meddle.html">
