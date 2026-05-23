@@ -48,6 +48,17 @@
       z-index: 2;
     }
 
+    .hub-brand {
+      display: none;
+      font-family: var(--sans);
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.88);
+      margin-bottom: 8px;
+    }
+
     .hub-eye {
       font-size: 10px;
       letter-spacing: .22em;
@@ -251,6 +262,10 @@
         width: 100%;
         max-width: 400px;
       }
+
+      .hub-brand    { display: block; }
+      .view-toggle  { display: none; }
+      .chrono-line  { display: none; }
     }
   </style>
 </head>
@@ -261,6 +276,7 @@
   <p class="bg-text" aria-hidden="true">PINK FLOYD</p>
 
   <div class="hub">
+    <p class="hub-brand">Pink Floyd</p>
     <p class="hub-eye">A listening guide</p>
     <p class="hub-title">Select an album to explore</p>
     <p class="hub-sub">Tap to enter</p>
