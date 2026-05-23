@@ -41,6 +41,9 @@
     .pg2 { animation: pulse2 7s ease-in-out 2s infinite; }
     .pd  { animation: drift  5s ease-in-out 1s infinite; }
     .pf  { animation: float  6s ease-in-out infinite; }
+    .back-btn { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.3); text-decoration: none; margin-bottom: 14px; transition: color 0.2s; }
+    .back-btn:hover { color: rgba(255,255,255,.6); }
+    .back-btn i { font-size: 13px; }
     @media (max-width: 480px) { body { padding: 0; } .guide { border-radius: 0; border: none; } .guide-title { font-size: 22px; } }
   </style>
 </head>
@@ -48,6 +51,7 @@
 <div class="guide">
 
   <div class="guide-header">
+    <a href="index.html" class="back-btn"><i class="ti ti-arrow-left" aria-hidden="true"></i> All albums</a>
     <p class="guide-eyebrow">Pink Floyd · 1977 · A listening guide</p>
     <p class="guide-title">Animals</p>
     <p class="guide-sub">Tap each track as it begins to play</p> 
